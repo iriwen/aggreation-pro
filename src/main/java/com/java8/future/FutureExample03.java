@@ -11,7 +11,7 @@ public class FutureExample03 {
 
     public static void main(String[] args) {
 
-        ListenableFuture<String> listenFuture = invoke(() -> {
+        ListenableFuture<String> listenFuture = FutureExample03.invoke(() -> {
             Thread.sleep(10000);
             return "I am finished !";
         });
@@ -19,8 +19,8 @@ public class FutureExample03 {
         listenFuture.addListener(new Completable<String>() {
             //到时异步回调
             @Override
-            public void complete(String s) {
-                System.out.println("complete  callback");
+            public void complete(String result) {
+                System.out.println("complete result ：" + result);
             }
 
             @Override
@@ -31,8 +31,8 @@ public class FutureExample03 {
         });
 
         System.out.println("........");
-        System.out.println(listenFuture.get());
-        System.out.println(listenFuture.get());
+        System.out.println("忙点别的：" + listenFuture.get());
+        System.out.println("看下有没有结果 ：" + listenFuture.get());
     }
 
     public static <T> ListenableFuture<T> invoke(Callable<T> callable) {
