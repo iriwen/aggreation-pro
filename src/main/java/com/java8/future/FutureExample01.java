@@ -32,7 +32,6 @@ public class FutureExample01 {
         while (!result.isDone()) {
             Thread.sleep(100);
         }
-
         System.out.println(result.get());
 
     }
