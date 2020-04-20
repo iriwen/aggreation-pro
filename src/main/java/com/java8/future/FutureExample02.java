@@ -12,14 +12,15 @@ public class FutureExample02 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         ExecutorService executorService = Executors.newFixedThreadPool(1);
-        Future fu = executorService.submit(()->{
+        Future<String> fu = executorService.submit(()->{
 
             try {
                 Thread.sleep(10000);
+                return "success";
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                return  "error";
             }
-            System.out.println("dsssdd");
         });
         //阻塞住
         while(!fu.isDone()){
