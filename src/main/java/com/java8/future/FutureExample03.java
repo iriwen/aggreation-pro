@@ -33,7 +33,6 @@ public class FutureExample03 {
         System.out.println("........");
         System.out.println(listenFuture.get());
         System.out.println(listenFuture.get());
-
     }
 
     public static <T> ListenableFuture<T> invoke(Callable<T> callable) {
