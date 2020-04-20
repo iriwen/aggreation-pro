@@ -3,12 +3,11 @@ package com.google.guava;
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * created by yuxiaodong01 on 2020/04/20.
+ * 主要了解学习 joiner类里面的封装方式
  */
 public class JoinerExample {
 
