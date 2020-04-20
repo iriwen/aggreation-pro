@@ -40,6 +40,7 @@ public class FutureExample01 {
     private static <T> MyFuture<T> submit(MyCallable<T> callable) {
 
         AtomicReference<T> reference = new AtomicReference();
+
         AtomicBoolean finished = new AtomicBoolean(false);
         Thread t = new Thread(() -> {
             try {
@@ -66,17 +67,18 @@ public class FutureExample01 {
         };
         return myFuture;
     }
+    // 接口作为类的成员变量。private修饰
+    private interface MyFuture<T> {
+        T get();
+        boolean isDone();
+    }
+
+    interface MyCallable<T> {
+
+        T action();
+    }
+
 }
 
-interface MyFuture<T> {
 
-    T get();
-
-    boolean isDone();
-}
-
-interface MyCallable<T> {
-
-    T action();
-}
 
