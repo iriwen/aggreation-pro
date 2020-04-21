@@ -1,4 +1,4 @@
-package com.google.guava;
+package com.google.spring.guava;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;

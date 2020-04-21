@@ -1,4 +1,4 @@
-package com.java8.future;
+package com.google.spring.future;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
