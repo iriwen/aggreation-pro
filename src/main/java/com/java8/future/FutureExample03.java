@@ -73,13 +73,16 @@ public class FutureExample03 {
             T result = null;
             try {
                 result = callable.call();
+                reference.set(result);
+                isDone.set(true);
+                if (future.getCompletable() != null) {
+                    future.getCompletable().complete(result);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
-            }
-            reference.set(result);
-            isDone.set(true);
-            if (future.getCompletable() != null) {
-                future.getCompletable().complete(result);
+                if (future.getCompletable() != null) {
+                    future.getCompletable().exception(e);
+                }
             }
         });
 
