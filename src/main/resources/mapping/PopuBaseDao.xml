@@ -4,7 +4,7 @@
 
     <!--auto generated Code-->
     <resultMap id="AllColumnMap" type="com.google.spring.entity.PopuBase">
-        <result column="row_id" property="rowId"/>
+        <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>
         <result column="id_no" property="idNo"/>
@@ -26,15 +26,15 @@
         <result column="opt_status" property="optStatus"/>
         <result column="opt_is_enable" property="optIsEnable"/>
         <result column="opt_sort_by" property="optSortBy"/>
-        <result column="created_by" property="createdBy"/>
+        <result column="createtor" property="createtor"/>
         <result column="updated_by" property="updatedBy"/>
-        <result column="created_time" property="createdTime"/>
-        <result column="updated_time" property="updatedTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <!--auto generated Code-->
     <sql id="all_column">
-        `row_id`,
+        `id`,
         `name`,
         `sex`,
         `id_no`,
@@ -56,22 +56,22 @@
         `opt_status`,
         `opt_is_enable`,
         `opt_sort_by`,
-        `created_by`,
+        `createtor`,
         `updated_by`,
-        `created_time`,
-        `updated_time`
+        `create_time`,
+        `update_time`
     </sql>
 
     <select id="getPopulationList" resultMap="AllColumnMap">
-        select * from popu_base order by created_time limit 10 ;
+        select * from popu_base order by create_time limit 10 ;
     </select>
 
     <select id="queryPopulationByTag" resultMap="AllColumnMap">
-        select * from popu_base order by created_time limit 10 ;
+        select * from popu_base order by create_time limit 10 ;
     </select>
 
     <select id="getPopulationListByPage" resultMap="AllColumnMap">
-        select * from popu_base order by created_time desc limit #{pageSize} offset #{offset} ;
+        select * from popu_base order by create_time desc limit #{pageSize} offset #{offset} ;
     </select>
 </mapper>
 

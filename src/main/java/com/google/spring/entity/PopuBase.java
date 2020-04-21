@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class PopuBase {
 
-    private String rowId;
+    private String id;
     private String name;
     private String sex;
 
@@ -35,17 +35,17 @@ public class PopuBase {
     private String optStatus;
     private String optIsEnable;
     private String optSortBy;
-    private String createdBy;
+    private String createtor;
     private String updatedBy;
-    private Date createdTime;
-    private Date updatedTime;
+    private Date createTime;
+    private Date updateTime;
 
-    public String getRowId() {
-        return rowId;
+    public String getId() {
+        return id;
     }
 
-    public void setRowId(String rowId) {
-        this.rowId = rowId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -216,12 +216,12 @@ public class PopuBase {
         this.optSortBy = optSortBy;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getCreatetor() {
+        return createtor;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
+    public void setCreatetor(String createtor) {
+        this.createtor = createtor;
     }
 
     public String getUpdatedBy() {
@@ -232,19 +232,19 @@ public class PopuBase {
         this.updatedBy = updatedBy;
     }
 
-    public Date getCreatedTime() {
-        return createdTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatedTime(Date createdTime) {
-        this.createdTime = createdTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdatedTime() {
-        return updatedTime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = updatedTime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
