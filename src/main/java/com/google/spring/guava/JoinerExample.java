@@ -16,5 +16,6 @@ public class JoinerExample {
         Preconditions.checkNotNull(stringList);
         StringBuilder sb = Joiner.on("#").skipNulls().appendTo(new StringBuilder(), stringList);
         System.out.println(sb.toString());
+
     }
 }
