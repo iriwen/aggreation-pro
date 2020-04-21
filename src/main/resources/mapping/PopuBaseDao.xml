@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.google.spring.mapper.PopulationMapper">
+
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.google.spring.entity.PopuBase">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="id_no" property="idNo"/>
+        <result column="used_name" property="usedName"/>
+        <result column="nation" property="nation"/>
+        <result column="original_place" property="originalPlace"/>
+        <result column="born_date" property="bornDate"/>
+        <result column="phone" property="phone"/>
+        <result column="org_code" property="orgCode"/>
+        <result column="doorplate_code" property="doorplateCode"/>
+        <result column="political_status" property="politicalStatus"/>
+        <result column="edu_degree" property="eduDegree"/>
+        <result column="marital_status" property="maritalStatus"/>
+        <result column="religion" property="religion"/>
+        <result column="career_type" property="careerType"/>
+        <result column="career" property="career"/>
+        <result column="company" property="company"/>
+        <result column="work_code" property="workCode"/>
+        <result column="opt_status" property="optStatus"/>
+        <result column="opt_is_enable" property="optIsEnable"/>
+        <result column="opt_sort_by" property="optSortBy"/>
+        <result column="createtor" property="createtor"/>
+        <result column="updated_by" property="updatedBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `id`,
+        `name`,
+        `sex`,
+        `id_no`,
+        `used_name`,
+        `nation`,
+        `original_place`,
+        `born_date`,
+        `phone`,
+        `org_code`,
+        `doorplate_code`,
+        `political_status`,
+        `edu_degree`,
+        `marital_status`,
+        `religion`,
+        `career_type`,
+        `career`,
+        `company`,
+        `work_code`,
+        `opt_status`,
+        `opt_is_enable`,
+        `opt_sort_by`,
+        `createtor`,
+        `updated_by`,
+        `create_time`,
+        `update_time`
+    </sql>
+
+    <select id="getPopulationList" resultMap="AllColumnMap">
+        select * from popu_base order by create_time limit 10 ;
+    </select>
+
+    <select id="queryPopulationByTag" resultMap="AllColumnMap">
+        select * from popu_base order by create_time limit 10 ;
+    </select>
+
+    <select id="getPopulationListByPage" resultMap="AllColumnMap">
+        select * from popu_base order by create_time desc limit #{pageSize} offset #{offset} ;
+    </select>
+</mapper>
+
