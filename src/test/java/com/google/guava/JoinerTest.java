@@ -20,6 +20,7 @@ public class JoinerTest {
     private final List<String> stringList = Arrays.asList("google", "java", "guava", "scala");
 
     private final List<String> stringWithNullList = Arrays.asList("google", "java", "guava", "scala", null);
+
     private final Map<String, String> map = ImmutableMap.of("hello", "java", "Hello", "scala");
 
     private final String filepath = "/Users/iriwen/guava/guava-joiner.txt";
@@ -58,7 +59,7 @@ public class JoinerTest {
 
     @Test
     public void testWriteToFile() {
-
+        //try with resource
         try(FileWriter writer = new FileWriter(new File(filepath))) {
             Joiner.on(";").withKeyValueSeparator("==").appendTo(writer, map);
             boolean test = Files.isFile().test(new File(filepath));
@@ -67,5 +68,4 @@ public class JoinerTest {
             Assert.fail(" failed to append to file");
         }
     }
-
 }
