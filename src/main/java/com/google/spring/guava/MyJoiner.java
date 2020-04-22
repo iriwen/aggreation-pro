@@ -40,8 +40,7 @@ public class MyJoiner {
             if (parts.hasNext()) {
                 builder.append(parts.next());
                 while (parts.hasNext()) {
-                    builder.append(this.delimiter);
-                    builder.append(parts.next());
+                    builder.append(this.delimiter).append(parts.next());
                 }
             }
             return builder.toString();
