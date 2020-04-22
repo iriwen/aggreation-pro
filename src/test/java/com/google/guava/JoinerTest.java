@@ -27,13 +27,11 @@ public class JoinerTest {
 
     @Test
     public void testJoiner() {
-
         String result = Joiner.on("#").join(stringList);
         String withNullResult = Joiner.on("#").skipNulls().join(stringWithNullList);
         String repalceNull = Joiner.on("#").useForNull("ddd").join(stringWithNullList);
         System.out.println(result + ":" + withNullResult + " : " + repalceNull);
         Assert.assertThat(repalceNull, Matchers.equalTo("google#java#guava#scala#ddd"));
-
     }
 
     @Test
@@ -41,7 +39,6 @@ public class JoinerTest {
         StringBuilder builder = new StringBuilder();
         StringBuilder repalceNull = Joiner.on("#").useForNull("ddd").appendTo(builder, stringWithNullList);
         System.out.println(repalceNull.toString());
-
     }
 
     @Test
@@ -63,7 +60,6 @@ public class JoinerTest {
         try(FileWriter writer = new FileWriter(new File(filepath))) {
             Joiner.on(";").withKeyValueSeparator("==").appendTo(writer, map);
             boolean test = Files.isFile().test(new File(filepath));
-
         } catch (Exception e) {
             Assert.fail(" failed to append to file");
         }
