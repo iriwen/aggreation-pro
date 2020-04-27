@@ -1,0 +1,142 @@
+<configuration>
+
+    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
+    <property name="PATH_INFO" value="jupiter"/>
+
+    <springProfile name="dev">
+        <property name="LOG_ROOT" value="/home/worker/log/"/>
+    </springProfile>
+
+    <springProfile name="test">
+        <property name="LOG_ROOT" value="/home/worker/log/"/>
+    </springProfile>
+    <!--预发布环境-->
+    <springProfile name="release">
+        <property name="LOG_ROOT" value="/home/worker/log/"/>
+    </springProfile>
+
+    <springProfile name="online">
+        <property name="LOG_ROOT" value="/home/worker/log/"/>
+    </springProfile>
+
+    <property name="LOG_TEMP" value="/tmp/logs"/>
+    <property name="LOG_DIR" value="${LOG_FILE:-${LOG_ROOT:-${LOG_TEMP:-/logs}}/${PATH_INFO}}"/>
+
+    <property name="DEFAULT_LOG_PATTERN" value="[%-5level] %d{ISO8601} [%thread] [%logger{0}:%L] | %msg%n"/>
+    <property name="CONSOLE_LOG_PATTERN" value="${DEFAULT_LOG_PATTERN}"/>
+    <property name="FILE_LOG_PATTERN" value="${DEFAULT_LOG_PATTERN}"/>
+
+    <!-- console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="APP_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/app.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <maxFileSize>500MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!--统计性日志-->
+    <appender name="STATS_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/stats.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/stats.log.%d{yyyy-MM-dd}.%i</fileNamePattern>
+            <maxFileSize>500MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>5GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_APP_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>2048</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="APP_FILE"/>
+    </appender>
+
+    <appender name="ASYNC_STATS_FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>2048</queueSize>
+        <includeCallerData>true</includeCallerData>
+        <appender-ref ref="STATS_FILE"/>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+        <logger name="com.cestc.jupiter" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+        <logger name="static" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="test">
+        <root level="INFO">
+            <appender-ref ref="APP_FILE"/>
+        </root>
+        <logger name="com.cestc.jupiter" level="DEBUG" additivity="false">
+            <appender-ref ref="APP_FILE"/>
+        </logger>
+        <logger name="static" level="INFO" additivity="false">
+            <appender-ref ref="STATS_FILE"/>
+        </logger>
+    </springProfile>
+
+    <!--<springProfile name="perf">
+        <root level="INFO">
+            <appender-ref ref="APP_FILE"/>
+        </root>
+        <logger name="com.cestc.jupiter" level="INFO" additivity="false">
+            <appender-ref ref="APP_FILE"/>
+        </logger>
+        <logger name="static" level="INFO" additivity="false">
+            <appender-ref ref="STATS_FILE"/>
+        </logger>
+    </springProfile>
+-->
+    <!--预发布环境-->
+    <springProfile name="release">
+        <root level="INFO">
+            <appender-ref ref="APP_FILE"/>
+        </root>
+        <logger name="com.cestc.jupiter" level="INFO" additivity="false">
+            <appender-ref ref="APP_FILE"/>
+        </logger>
+        <logger name="static" level="INFO" additivity="false">
+            <appender-ref ref="STATS_FILE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="online">
+        <root level="INFO">
+            <appender-ref ref="APP_FILE"/>
+        </root>
+        <logger name="com.cestc.jupiter" level="INFO" additivity="false">
+            <appender-ref ref="APP_FILE"/>
+        </logger>
+        <logger name="static" level="INFO" additivity="false">
+            <appender-ref ref="ASYNC_STATS_FILE"/>
+        </logger>
+    </springProfile>
+
+</configuration>
