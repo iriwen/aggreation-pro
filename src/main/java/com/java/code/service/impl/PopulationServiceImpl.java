@@ -1,9 +1,9 @@
-package com.google.spring.service.impl;
+package com.java.code.service.impl;
 
 
-import com.google.spring.entity.PopuBase;
-import com.google.spring.mapper.PopulationMapper;
-import com.google.spring.service.PopulationService;
+import com.java.code.entity.PopuBase;
+import com.java.code.mapper.PopulationMapper;
+import com.java.code.service.PopulationService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

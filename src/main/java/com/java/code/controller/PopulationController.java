@@ -1,7 +1,7 @@
-package com.google.spring.controller;
+package com.java.code.controller;
 
 
-import com.google.spring.service.PopulationService;
+import com.java.code.service.PopulationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

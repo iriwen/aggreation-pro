@@ -1,4 +1,4 @@
-package com.google.spring.lambda;
+package com.java.code.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;

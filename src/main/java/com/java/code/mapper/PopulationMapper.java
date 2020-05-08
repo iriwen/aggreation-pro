@@ -1,6 +1,6 @@
-package com.google.spring.mapper;
+package com.java.code.mapper;
 
-import com.google.spring.entity.PopuBase;
+import com.java.code.entity.PopuBase;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

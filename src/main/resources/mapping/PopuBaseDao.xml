@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.google.spring.mapper.PopulationMapper">
+<mapper namespace="com.java.code.mapper.PopulationMapper">
 
     <!--auto generated Code-->
-    <resultMap id="AllColumnMap" type="com.google.spring.entity.PopuBase">
+    <resultMap id="AllColumnMap" type="com.java.code.entity.PopuBase">
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>

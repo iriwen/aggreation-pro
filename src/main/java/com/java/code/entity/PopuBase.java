@@ -1,4 +1,4 @@
-package com.google.spring.entity;
+package com.java.code.entity;
 
 import java.util.Date;
 

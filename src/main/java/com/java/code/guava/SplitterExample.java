@@ -1,4 +1,4 @@
-package com.google.spring.guava;
+package com.java.code.guava;
 
 
 /**

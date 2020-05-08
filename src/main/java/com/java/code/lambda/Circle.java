@@ -1,4 +1,4 @@
-package com.google.spring.lambda;
+package com.java.code.lambda;
 
 public class Circle {
 

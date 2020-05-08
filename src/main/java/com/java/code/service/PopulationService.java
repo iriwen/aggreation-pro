@@ -1,8 +1,8 @@
-package com.google.spring.service;
+package com.java.code.service;
 
 
 
-import com.google.spring.entity.PopuBase;
+import com.java.code.entity.PopuBase;
 
 import java.util.List;
 
