@@ -1,4 +1,4 @@
-package com.google.guava;
+package com.java.code.guava;
 
 import com.google.common.base.Splitter;
 import org.hamcrest.core.IsEqual;

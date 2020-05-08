@@ -1,4 +1,4 @@
-package com.google.guava;
+package com.java.code.guava;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
