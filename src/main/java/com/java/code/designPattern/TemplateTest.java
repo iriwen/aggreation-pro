@@ -12,5 +12,9 @@ public class TemplateTest {
         mA.live();
         System.out.println("--------diffrent live style---------------");
         mB.live();
+
+
+        Singleton singleTon =  Singleton.getInstance();
+
     }
 }
