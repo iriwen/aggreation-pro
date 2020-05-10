@@ -1,4 +1,4 @@
-package com.java.code.designMode;
+package com.java.code.designPattern;
 
 /**
  * created by yuxiaodong01 on 2020/05/08.
