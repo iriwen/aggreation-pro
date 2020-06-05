@@ -16,7 +16,7 @@ public class TemplateTest {
         mB.live();
 
 
-        Singleton singleTon =  Singleton.getInstance();
+        Singleton singleTon = Singleton.getInstance();
 
         ArrayList<String> list = new ArrayList<>();
 
