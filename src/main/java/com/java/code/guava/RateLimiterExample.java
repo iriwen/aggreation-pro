@@ -11,6 +11,9 @@ import java.util.stream.IntStream;
 
 /**
  * created by yuxiaodong01 on 2020/06/05.
+ * 限流： 漏桶算法
+ *
+ *
  */
 public class RateLimiterExample {
 
