@@ -16,12 +16,11 @@ public class StackOverFlow01 {
 
     public static void main(String[] args) {
         StackOverFlow01 instance = new StackOverFlow01();
-        instance.stackA();
     }
 
-    public void stackA() {
+    /*public void stackA() {
         b.stackB();
-    }
+    }*/
 }
 
 class StackOverFlow02 {
@@ -32,7 +31,7 @@ class StackOverFlow02 {
         a = new StackOverFlow01();
     }
 
-    public void stackB() {
+    /*public void stackB() {
         a.stackA();
-    }
+    }*/
 }
