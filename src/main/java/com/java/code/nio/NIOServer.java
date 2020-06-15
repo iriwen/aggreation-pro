@@ -26,6 +26,7 @@ public class NIOServer {
 
         private Selector selector;
 
+        //构造方法中实现Serversocketchannel创建
         public ReactorTask() {
             try {
                 // 第一步：打开ServerSocketChannel，用于监听客户端的连接，它是所有客户端连接的父管道
