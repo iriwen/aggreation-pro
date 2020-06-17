@@ -1,7 +1,6 @@
 package com.java.code.nio;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
@@ -33,7 +32,7 @@ public class NIOServer {
                 ServerSocketChannel acceptorServer = ServerSocketChannel.open();
 
                 // 第二步：监听端口，设置连接为非阻塞模式
-                acceptorServer.socket().bind(new InetSocketAddress(InetAddress.getByName("localhost"), 1234));
+                acceptorServer.socket().bind(new InetSocketAddress("localhost", 1234));
                 acceptorServer.configureBlocking(false);
 
                 // 第三步：创建Reactor线程，创建多路复用器并启动线程
@@ -54,7 +53,7 @@ public class NIOServer {
             // 第五步：在run方法中无限循环体内轮询准备就绪的Key
             while (true) {
                 try {
-                    selector.select(1000);
+                    int num = selector.select(1000);
                     Set<SelectionKey> selectedKeys = selector.selectedKeys();
                     Iterator<SelectionKey> it = selectedKeys.iterator();
                     SelectionKey key = null;
@@ -67,12 +66,12 @@ public class NIOServer {
                                 if (key.isAcceptable()) {
                                     // 第六步：多路复用器监听到有新的客户端接入，处理新的接入请求，完成TCP三次握手，建立物理链路
                                     ServerSocketChannel ssc = (ServerSocketChannel) key.channel();
-                                    SocketChannel sc = ssc.accept();
+                                    SocketChannel client = ssc.accept();
                                     // 第七步：设置客户端链路为非阻塞模式
-                                    sc.configureBlocking(false);
-                                    sc.socket().setReuseAddress(true);
+                                    client.configureBlocking(false);
+                                    client.socket().setReuseAddress(true);
                                     // 第八步：将新接入的客户端连接注册到Reactor线程的多路复用器上，监听读操作，读取客户端发送的网络消息
-                                    sc.register(selector, SelectionKey.OP_READ);
+                                    client.register(selector, SelectionKey.OP_READ);
                                 }
                                 if (key.isReadable()) {
                                     // 第九步：异步读取客户端请求消息到缓存区
