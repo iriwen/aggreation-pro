@@ -7,6 +7,8 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
@@ -80,6 +82,7 @@ public class NIOExample {
 
         SocketChannel channel = (SocketChannel) key.channel();
         int byteReads = 0;
+        String content="";
         while (true) {
 
             ByteBuffer buffer = ByteBuffer.allocate(512);
@@ -91,7 +94,11 @@ public class NIOExample {
                 byteReads += readNum;
             }
             buffer.flip();
-            String result = new Date(System.currentTimeMillis()).toString() + "ok !";
+
+            //content = new String(buffer.array());
+            content = getUtf8(buffer);
+
+            String result = new Date(System.currentTimeMillis()).toString() + "content client : " + content;
             byte[] bytes = result.getBytes();
 
             ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length);
@@ -99,6 +106,15 @@ public class NIOExample {
             writeBuffer.flip();
             channel.write(writeBuffer);
         }
-        System.out.println("read " + byteReads + " bytes  from " + channel);
+
+        System.out.println("content : " + content );
+        System.out.println("read bytes : " + byteReads + " ; bytes  from " + channel );
+    }
+
+    public static String getUtf8(ByteBuffer content){
+        Charset charset = StandardCharsets.UTF_8;
+        char[] chars = charset.decode(content).array();
+        String result = String.valueOf(chars);
+        return result;
     }
 }
