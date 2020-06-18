@@ -7,17 +7,24 @@ import com.google.common.base.MoreObjects;
  */
 public class Employee {
 
-
+    private String id;
     private String name;
 
     private String department;
 
-    private String id;
+    public Employee() {
+
+    }
 
     public Employee(String name, String department, String id) {
         this.name = name;
         this.department = department;
         this.id = id;
+    }
+
+    public Employee(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     @Override
