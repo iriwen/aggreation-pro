@@ -55,6 +55,10 @@ public class Employee {
         return id;
     }
 
+    public void  initMethod(){
+        System.out.println("I am  initialized !");
+    }
+
     public void setId(String id) {
         this.id = id;
     }

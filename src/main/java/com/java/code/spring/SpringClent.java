@@ -20,6 +20,9 @@ import org.springframework.core.io.ClassPathResource;
  *  spring 的方法以do开头的基本都是内部使用的方法
  *
  *  委托模式  模板方法设计模式
+ *
+ *  scope  用于后面工厂缓存的控制   bean 是缓存在currentHashMap中
+ *
  */
 public class SpringClent {
 

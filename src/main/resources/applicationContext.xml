@@ -4,8 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="employee" class="com.java.code.entity.Employee">
+    <!--init-method  lazy-init-->
+    <bean id="employee" class="com.java.code.entity.Employee" lazy-init="false" init-method="initMethod">
         <property name="id"  value = "1" />
         <property name="name"  value="test" />
     </bean>
+
 </beans>
