@@ -4,7 +4,9 @@ import java.util.LinkedList;
 
 public class CompressTest {
 
+    private static final ThreadLocal tl = new ThreadLocal();
     public static void main(String[] args) {
+
 
         String charStr =  "AAABBBBBCCCCCEAAAABBBB";
         char[]  chars = charStr.toCharArray();
