@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--init-method  lazy-init-->
+    <!--init-method  lazy-init 一个bean节点最终映射到一个BeanDefinitionHolder上 -->
     <bean id="employee" class="com.java.code.entity.Employee" lazy-init="false" init-method="initMethod">
         <property name="id"  value = "1" />
         <property name="name"  value="test" />

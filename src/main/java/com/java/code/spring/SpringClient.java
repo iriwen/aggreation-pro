@@ -19,12 +19,14 @@ import org.springframework.core.io.ClassPathResource;
  *
  *  spring 的方法以do开头的基本都是内部使用的方法
  *
- *  委托模式  模板方法设计模式
+ *  委托模式(xml文件的解析)  模板方法模式（固定的步骤pre process post）
  *
  *  scope  用于后面工厂缓存的控制   bean 是缓存在currentHashMap中
+ *  bean 注入构造器注入 和set 注入
+ *  属性信息值解析并装配到BeanDefinition ，相应的bean注册之后 会触发观察者中的方法
  *
  */
-public class SpringClent {
+public class SpringClient {
 
     public static void main(String[] args) {
 
@@ -35,12 +37,13 @@ public class SpringClent {
         //bean 工厂同时也是bean定义的注册表 ,registry resourceLoader  environment  设置值
         BeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(factory);
 
-        //核心处理操作在这个方法上，流程多
+        //核心处理操作在这个方法上，流程多，本次注册过程中新增了多少bean
+        //到这里bean还没有创建出来
         int beanNumbers = beanDefinitionReader.loadBeanDefinitions(resource);
 
         Employee employee = (Employee)factory.getBean("employee");
 
-        System.out.println(employee.getName()+ " ;"  + employee.getId() );
+        System.out.println(employee.getName()+ "; id = "  + employee.getId() );
 
     }
 }
