@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  starter:
+    name: theStarterFailedBySpace
   datasource:
     name: basicdata_20200401
     url: jdbc:mysql://211.157.164.163:23306/basicdata_20200401

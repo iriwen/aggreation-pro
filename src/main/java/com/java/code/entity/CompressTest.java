@@ -29,5 +29,8 @@ public class CompressTest {
         StringBuilder stringBuilder = new StringBuilder();
         list.forEach(item-> stringBuilder.append(item));
         System.out.println(stringBuilder.toString());
+
+        String classPath = System.getProperty("java.class.path");
+        System.out.println("classPath : " + classPath);
     }
 }

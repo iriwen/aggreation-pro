@@ -85,6 +85,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <!-- my-starter 实现-->
+        <dependency>
+            <groupId>org.autoconfig</groupId>
+            <artifactId>my-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
         <!-- lettuce 连接池依赖 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -92,10 +99,10 @@
             <version>2.5.0</version>
         </dependency>
         <!--hytrix熔断控制 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
