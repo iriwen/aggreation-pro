@@ -23,8 +23,15 @@ public class SpringAopClient {
         //到这里bean还没有创建出来
         int beanNumbers = beanDefinitionReader.loadBeanDefinitions(resource);
 
-        MyAopService myAopService = (MyAopService)factory.getBean("myAdvisedService");
+        MyAopService myAdvisedService = (MyAopService)factory.getBean("myAdvisedService");
 
-        myAopService.method();
+        myAdvisedService.method();
+
+        Class<?>[] interfaces = myAdvisedService.getClass().getInterfaces();
+
+        for (int i = 0; i < interfaces.length; i++) {
+
+            System.out.println(interfaces[i]);
+        }
     }
 }
