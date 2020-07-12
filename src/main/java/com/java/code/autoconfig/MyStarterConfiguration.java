@@ -1,7 +1,7 @@
 package com.java.code.autoconfig;
 
-import com.boot.autoconfig.MyStarterService;
-import com.boot.autoconfig.StarterProperties;
+//import com.boot.autoconfig.MyStarterService;
+//import com.boot.autoconfig.StarterProperties;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

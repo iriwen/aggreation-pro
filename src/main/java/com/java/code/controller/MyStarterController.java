@@ -1,7 +1,7 @@
 package com.java.code.controller;
 
-import com.boot.autoconfig.MyStarterService;
-import org.springframework.beans.factory.annotation.Autowired;
+//import com.boot.autoconfig.MyStarterService;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/starter")
 public class MyStarterController {
 
-    @Autowired
+    /*@Autowired
     private MyStarterService starterService;
 
     @RequestMapping(value = "/starterInfo")
     public Object getStarterInfo() {
         return starterService.sayHello();
-    }
+    }*/
 }
 

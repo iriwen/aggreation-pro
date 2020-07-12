@@ -5,13 +5,16 @@ import java.util.List;
 
 /**
  * created by yuxiaodong01 on 2020/06/30.
+ *
+ *
+ * 回溯 贪心  分治  动态规划
  */
 public class Permute {
 
 
     public static void main(String[] args) {
-
-        int[] a = {2,3,5,8};
+        //int[] a = {2,3,5,8};
+        int[] a = {1,2,3};
         List<List<Integer>> fullOrder = getFullOrder(a);
         fullOrder.forEach(item-> System.out.println(item));
     }
