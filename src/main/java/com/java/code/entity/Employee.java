@@ -1,15 +1,24 @@
 package com.java.code.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
 /**
  * created by yuxiaodong01 on 2020/06/05.
  */
+//null值不显示
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({"name", "id"})
 public class Employee {
 
+    //@JsonIgnore
     private String id;
+
     private String name;
 
+    @JsonProperty("company")
     private String department;
 
     public Employee() {

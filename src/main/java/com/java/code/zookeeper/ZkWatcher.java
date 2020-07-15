@@ -52,6 +52,7 @@ public class ZkWatcher implements Watcher {
      * @param watchedEvent
      */
     @Override
+
     public void process(WatchedEvent watchedEvent) {
 
         if (watchedEvent.getType().equals(Event.EventType.NodeCreated)) {
@@ -66,6 +67,5 @@ public class ZkWatcher implements Watcher {
             System.out.println("exception info :" + e.getMessage());
         }
     }
-
 
 }
