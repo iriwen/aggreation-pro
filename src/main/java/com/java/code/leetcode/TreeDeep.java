@@ -3,6 +3,10 @@ package com.java.code.leetcode;
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 
+/**
+ *
+ * 二叉树非递归方式遍历和获取深度。利用队列和栈的特性
+ */
 public class TreeDeep {
 
     public static void main(String[] args) {
