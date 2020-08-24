@@ -13,7 +13,7 @@ public class TestRetry {
             for (int j = 0; j < 5; j++) {
                 count++;
                 if (count == 3) {
-                    //break retry;是跳出了整个的两层循环
+                    //break retry;是跳出了整个的两层循环,这里不一定要是retry也可以是hello 等其他单词
                     break retry;
                 }
                 System.out.print(count + " ");
