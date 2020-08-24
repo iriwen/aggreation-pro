@@ -1,5 +1,7 @@
 package com.java.code.entity;
 
+import java.util.Arrays;
+
 /**
  * created by yuxiaodong01 on 2020/08/24.
  */
@@ -7,6 +9,9 @@ public class TestRetry {
 
     public static void main(String[] args) {
 
+        int[] a = new int[] { 10, 5, 3, 2, 6, 8, 7, 9, 1, 4 };
+
+        int[] b = Arrays.copyOfRange(a, 2, 6);// 截取索引2（包括）到索引6（不包括）的元素
         int count = 0;
         retry:
         for (int i = 0; i < 2; i++) {
