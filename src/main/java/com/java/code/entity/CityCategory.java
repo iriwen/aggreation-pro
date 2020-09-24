@@ -10,6 +10,11 @@ public class CityCategory {
     private Integer department;
     private List<CityCategory>  cityList;
 
+
+    public CityCategory(Integer id) {
+        this.id = id;
+    }
+
     public Integer getParentId() {
         return parentId;
     }
