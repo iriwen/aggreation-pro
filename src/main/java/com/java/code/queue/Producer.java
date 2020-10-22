@@ -7,12 +7,9 @@ import java.util.concurrent.BlockingQueue;
  */
 public class Producer {
 
-    private int id;
+    private final int id;
 
-    private BlockingQueue<String> queue;
-
-    public Producer() {
-    }
+    private final BlockingQueue<String> queue;
 
     public Producer(int id, BlockingQueue<String> queue) {
         this.id = id;
