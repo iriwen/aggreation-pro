@@ -2,22 +2,16 @@ package com.java.code.autoconfig;
 
 //import com.boot.autoconfig.MyStarterService;
 //import com.boot.autoconfig.StarterProperties;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * created by yuxiaodong01 on 2020/06/24.
  */
 
 // 当 MyStarterService 在类路径的条件下
-@ConditionalOnClass({MyStarterService.class})
-@EnableConfigurationProperties(StarterProperties.class)
-@ConditionalOnProperty(prefix = "spring.starter", value = "enabled", matchIfMissing = true)
-@Configuration
+//@ConditionalOnClass({MyStarterService.class})
+//@EnableConfigurationProperties(StarterProperties.class)
+//@ConditionalOnProperty(prefix = "spring.starter", value = "enabled", matchIfMissing = true)
+//@Configuration
 public class MyStarterConfiguration {
 
     /*@Autowired
@@ -31,9 +25,9 @@ public class MyStarterConfiguration {
         this.properties = properties;
     }*/
 
-    @Bean
+    //@Bean
     // 当容器没有这个 Bean 的时候才创建这个 Bean
-    @ConditionalOnMissingBean(MyStarterService.class)
+    //@ConditionalOnMissingBean(MyStarterService.class)
     public MyStarterService myStarterService(StarterProperties properties) {
         MyStarterService myStarterService = new MyStarterService();
         myStarterService.setWords(properties.getName());

@@ -1,4 +1,4 @@
-package com.java.code.designPattern;
+package com.java.code.designPattern.strategy;
 
 /**
  * created by yuxiaodong01 on 2020/05/08.

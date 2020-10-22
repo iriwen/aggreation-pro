@@ -1,50 +1,44 @@
 package com.java.code.entity;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
 
 /**
  * created by yuxiaodong01 on 2020/04/02.
  */
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PopuBase {
 
-    private String id;
+    List<Long> ids;
+
     private String name;
+
     private String sex;
 
     private String idNo;
-    private String usedName;
 
     private String nation;
 
-    private String  originalPlace;
-
-    private Date bornDate;
-
     private String phone;
+    private Long id;
+    private Long createTime;
+    private Long updateTime;
 
-    private String orgCode;
-    private String doorplateCode;
-    private String politicalStatus;
-    private String eduDegree;
-    private String maritalStatus;
-    private String religion;
-    private String careerType;
-    private String career;
-    private String company;
-    private String workCode;
-    private String optStatus;
-    private String optIsEnable;
-    private String optSortBy;
-    private String createtor;
-    private String updatedBy;
-    private Date createTime;
-    private Date updateTime;
+    public List<Long> getIds() {
+        return ids;
+    }
 
-    public String getId() {
+    public void setIds(List<Long> ids) {
+        this.ids = ids;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,36 +66,12 @@ public class PopuBase {
         this.idNo = idNo;
     }
 
-    public String getUsedName() {
-        return usedName;
-    }
-
-    public void setUsedName(String usedName) {
-        this.usedName = usedName;
-    }
-
     public String getNation() {
         return nation;
     }
 
     public void setNation(String nation) {
         this.nation = nation;
-    }
-
-    public String getOriginalPlace() {
-        return originalPlace;
-    }
-
-    public void setOriginalPlace(String originalPlace) {
-        this.originalPlace = originalPlace;
-    }
-
-    public Date getBornDate() {
-        return bornDate;
-    }
-
-    public void setBornDate(Date bornDate) {
-        this.bornDate = bornDate;
     }
 
     public String getPhone() {
@@ -112,139 +82,19 @@ public class PopuBase {
         this.phone = phone;
     }
 
-    public String getOrgCode() {
-        return orgCode;
-    }
-
-    public void setOrgCode(String orgCode) {
-        this.orgCode = orgCode;
-    }
-
-    public String getDoorplateCode() {
-        return doorplateCode;
-    }
-
-    public void setDoorplateCode(String doorplateCode) {
-        this.doorplateCode = doorplateCode;
-    }
-
-    public String getPoliticalStatus() {
-        return politicalStatus;
-    }
-
-    public void setPoliticalStatus(String politicalStatus) {
-        this.politicalStatus = politicalStatus;
-    }
-
-    public String getEduDegree() {
-        return eduDegree;
-    }
-
-    public void setEduDegree(String eduDegree) {
-        this.eduDegree = eduDegree;
-    }
-
-    public String getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    public String getReligion() {
-        return religion;
-    }
-
-    public void setReligion(String religion) {
-        this.religion = religion;
-    }
-
-    public String getCareerType() {
-        return careerType;
-    }
-
-    public void setCareerType(String careerType) {
-        this.careerType = careerType;
-    }
-
-    public String getCareer() {
-        return career;
-    }
-
-    public void setCareer(String career) {
-        this.career = career;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getWorkCode() {
-        return workCode;
-    }
-
-    public void setWorkCode(String workCode) {
-        this.workCode = workCode;
-    }
-
-    public String getOptStatus() {
-        return optStatus;
-    }
-
-    public void setOptStatus(String optStatus) {
-        this.optStatus = optStatus;
-    }
-
-    public String getOptIsEnable() {
-        return optIsEnable;
-    }
-
-    public void setOptIsEnable(String optIsEnable) {
-        this.optIsEnable = optIsEnable;
-    }
-
-    public String getOptSortBy() {
-        return optSortBy;
-    }
-
-    public void setOptSortBy(String optSortBy) {
-        this.optSortBy = optSortBy;
-    }
-
-    public String getCreatetor() {
-        return createtor;
-    }
-
-    public void setCreatetor(String createtor) {
-        this.createtor = createtor;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public Date getCreateTime() {
+    public Long getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Long createTime) {
         this.createTime = createTime;
     }
 
-    public Date getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 }

@@ -1,16 +1,18 @@
 package com.java.code.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * created by yuxiaodong01 on 2020/06/05.
  */
-//null值不显示
+//设置null值不显示
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonIgnoreProperties({"name", "id"})
+//@JsonIgnoreProperties({"name", "id"})
 public class Employee {
 
     //@JsonIgnore
@@ -20,6 +22,8 @@ public class Employee {
 
     @JsonProperty("company")
     private String department;
+
+    private Map<String, String> map = new HashMap<>();
 
     public Employee() {
 
@@ -70,5 +74,13 @@ public class Employee {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Map<String, String> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, String> map) {
+        this.map = map;
     }
 }

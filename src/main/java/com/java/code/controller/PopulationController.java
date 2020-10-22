@@ -1,18 +1,42 @@
 package com.java.code.controller;
 
 
+import com.java.code.entity.PopuBase;
+import com.java.code.entity.PopuBaseService;
 import com.java.code.service.PopulationService;
+import com.java.code.util.JsonMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
 /**
  * created by yuxiaodong01 on 2020/04/02.
  */
 @RestController
-@RequestMapping(value = "/population")
+@RequestMapping(value = "/test")
 public class PopulationController {
+
+
+    private final Logger logger = LoggerFactory.getLogger(PopulationController.class);
+    @Autowired
+    PopuBaseService popuBaseService;
+    @Autowired
+    private RedisTemplate<String,String> redisTemplate;
 
     @Autowired
     private PopulationService populationService;
@@ -32,6 +56,70 @@ public class PopulationController {
     public Object getTagsById(@PathVariable("id") String id) {
         //return populationService.getTagsById();
         return null;
+    }
+
+    @RequestMapping(value = "/addPopuBase", method = RequestMethod.POST)
+    public Object addPopuBase(@RequestBody  PopuBase pojo) {
+        //执行sql异常处理
+        int num = 0;
+        try{
+            num = popuBaseService.insert(pojo);
+        }catch (Exception e){
+            logger.error("insert failed :" + e.getMessage());
+        }
+        return num;
+    }
+
+    @RequestMapping(value = "/deletePopuBase", method = RequestMethod.POST)
+    public Object deletePopuBase(@RequestBody Map<String,List<Long>> pojo) {
+        logger.info("input ids : {}", JsonMapper.toJsonString(pojo));
+        //List<Long> ids = pojo.get("ids");
+        return null;
+    }
+
+    @RequestMapping(value = "/getSimpleParam", method = RequestMethod.POST)
+    public Object getSimpleParam(@RequestBody String biNo) {
+        logger.info("input num : {}", JsonMapper.toJsonString(biNo));
+        //List<Long> ids = pojo.get("ids");
+        return null;
+    }
+
+
+
+    @RequestMapping(value = "/downloadFile", method = RequestMethod.GET)
+    public ResponseEntity<byte[]> downloadFile() {
+
+        File file = new File("/home/worker/test1.txt");
+        byte[] body = null;
+        HttpHeaders headers = new HttpHeaders();
+        try {
+            InputStream is = new FileInputStream(file);
+
+            headers.add("Content-Disposition", "attchement;filename=" + file.getName());
+
+            headers.add("Content-Type", "text/plain;charset=utf-8");
+
+            body = new byte[is.available()];
+            is.read(body);
+        } catch (Exception e) {
+            logger.error("error messge :" +  e.getMessage());
+        }
+
+        logger.info("remote download file ,file size is :" + body.length);
+
+        ResponseEntity<byte[]> entity = new ResponseEntity<>(body, headers, HttpStatus.OK);
+        return entity;
+    }
+
+
+    @RequestMapping(value = "/operateCache", method = RequestMethod.GET)
+    public void operateCache() {
+
+        redisTemplate.opsForValue().set("testkey1", "testValue1");
+
+       /* redisTemplate.opsForValue().get
+                Object testkey1 = redisTemplate.opsForValue().get("testkey1");*/
+        logger.info("set redis value ");
     }
 
 }

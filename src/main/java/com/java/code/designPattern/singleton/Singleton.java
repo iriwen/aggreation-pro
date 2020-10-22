@@ -1,4 +1,4 @@
-package com.java.code.designPattern;
+package com.java.code.designPattern.singleton;
 
 /**
  * created by yuxiaodong01 on 2020/05/10.

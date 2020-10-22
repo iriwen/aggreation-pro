@@ -1,4 +1,6 @@
-package com.java.code.designPattern;
+package com.java.code.designPattern.templateMethod;
+
+import com.java.code.designPattern.singleton.Singleton;
 
 import java.util.ArrayList;
 
