@@ -1,6 +1,7 @@
 package com.java.code.controller;
 
 
+import com.java.code.entity.CommonVo;
 import com.java.code.entity.PopuBase;
 import com.java.code.entity.PopuBaseService;
 import com.java.code.service.PopulationService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
@@ -84,10 +87,13 @@ public class PopulationController {
         return null;
     }
 
-
-
     @RequestMapping(value = "/downloadFile", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> downloadFile() {
+    @ResponseBody
+    public ResponseEntity<byte[]> downloadFile(@RequestParam(value = "biNo") String biNo ,
+                                               @RequestParam(required = false) String startTime,
+                                               @RequestParam(required = false) String endTime) {
+
+        logger.info("biNo : {} , startTime : {} ,endTime :{}", biNo, startTime, endTime);
 
         File file = new File("/home/worker/test1.txt");
         byte[] body = null;
@@ -108,6 +114,10 @@ public class PopulationController {
         logger.info("remote download file ,file size is :" + body.length);
 
         ResponseEntity<byte[]> entity = new ResponseEntity<>(body, headers, HttpStatus.OK);
+        /*byte[] body1 = entity.getBody();
+        String s = new String(body1);
+        JsonMapper.toJsonString(s);*/
+
         return entity;
     }
 
@@ -120,6 +130,29 @@ public class PopulationController {
        /* redisTemplate.opsForValue().get
                 Object testkey1 = redisTemplate.opsForValue().get("testkey1");*/
         logger.info("set redis value ");
+    }
+
+
+    @RequestMapping(value = "/testHttpStatus", method = RequestMethod.GET)
+    public CommonVo testHttpStatus() {
+        CommonVo vo = new CommonVo();
+
+        vo.setCode("300");
+        vo.setMessage("success");
+        vo.setData("---------");
+
+        return vo;
+    }
+
+    @RequestMapping(value = "/asyncReq", method = RequestMethod.GET)
+    public CommonVo testHttpStatus2() {
+        CommonVo vo = new CommonVo();
+
+        vo.setCode("300");
+        vo.setMessage("success");
+        vo.setData("---------");
+
+        return vo;
     }
 
 }

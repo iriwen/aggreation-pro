@@ -23,6 +23,8 @@ public class Employee {
     @JsonProperty("company")
     private String department;
 
+    private Object  data;
+
     private Map<String, String> map = new HashMap<>();
 
     public Employee() {
@@ -38,6 +40,14 @@ public class Employee {
     public Employee(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
     }
 
     @Override

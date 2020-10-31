@@ -25,32 +25,47 @@ public class JacksonTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
-
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         Employee employee = new Employee();
         employee.setId("1");
         employee.setName("jackson");
         employee.setDepartment(null);
         Map<String, String> map = employee.getMap();
-        map.put("field1", "sdsd");
-        map.put("field2", "dssdsd");
-        map.put("field3", "hiohjo");
+        map.put("field1", "kylie");
+        map.put("field2", "manjaro");
+        map.put("field3", "iriwen");
+        employee.setData(map);
 
         String result = objectMapper.writeValueAsString(employee);
+
+        JsonNode valueTree = objectMapper.readTree(result);
+        String s1 = valueTree.get("data").get("field2").toString();
 
         ObjectNode node = objectMapper.valueToTree(employee);
 
         JsonNode mapNode = node.get("map");
 
-        //JSONPObject jsonObject  =
+        ObjectNode put = ((ObjectNode) mapNode).put("new_field", "intelliJ");
+
+        Map<String,String> fieldMap = objectMapper.readValue(mapNode.toString(), new TypeReference<Map<String,String>>() {
+        });
+
+        System.out.println(fieldMap.size());
+
+        JsonNode nameNode = mapNode.get("name");
+
+        JsonNode readTree = objectMapper.readTree(result);
+
+
+
+        JsonNode idNode = readTree.get("id");
 
         JSONObject jsonObject = new JSONObject(objectMapper.writeValueAsString(employee));
+        jsonObject.get("name");
 
-        Object jsonMap = jsonObject.get("map");
 
         System.out.println("-------------------------------");
         System.out.println(result);
-
 
         String employStr = "{\"id\":\"1\",\"name\":\"jackson\",\"company\":\"dev\"}";
 
@@ -62,17 +77,12 @@ public class JacksonTest {
 
         });
 
-
         List<Integer> collect = Stream.of(12, 13, 14).collect(Collectors.toList());
-
 
         List<Integer> integers = objectMapper.readValue(objectMapper.writeValueAsString(collect), new TypeReference<List<Integer>>() {
         });
 
-
-
         System.out.println(employeeList);
-
 
         String bi = "zx03";
         String s = bi.toUpperCase();

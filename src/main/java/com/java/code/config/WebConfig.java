@@ -22,7 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
     }*/
     public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
         JacksonManualHttpMessageConverter jacksonMessageConverter = new JacksonManualHttpMessageConverter();
-        jacksonMessageConverter.setJsonPrefix("aaa>>>");
+        //jacksonMessageConverter.setJsonPrefix("aaa>>>");
         return jacksonMessageConverter;
 
     }
