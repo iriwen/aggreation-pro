@@ -1,13 +1,20 @@
 package com.java.code.entity;
 
+import java.util.Map;
+
 /**
  * created by yuxiaodong01 on 2020/10/26.
  */
 public class CommonVo {
 
     private String code;
+
     private String message;
+
     private Object data;
+
+    private Map<String, String> extMap;
+
     public CommonVo() {
     }
     public CommonVo(String code, String message, Object data) {
@@ -38,5 +45,13 @@ public class CommonVo {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public Map<String, String> getExtMap() {
+        return extMap;
+    }
+
+    public void setExtMap(Map<String, String> extMap) {
+        this.extMap = extMap;
     }
 }

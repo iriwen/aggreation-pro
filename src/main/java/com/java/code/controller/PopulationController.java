@@ -24,8 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * created by yuxiaodong01 on 2020/04/02.
@@ -155,5 +157,24 @@ public class PopulationController {
         return vo;
     }
 
+    @RequestMapping(value = "/future", method = RequestMethod.GET)
+    public CommonVo testAsyncFuture() {
+        CommonVo vo = new CommonVo();
+
+        vo.setCode("900");
+        vo.setMessage("future success");
+        vo.setData("---------");
+
+        CompletableFuture future = CompletableFuture.runAsync(() -> {
+            try {
+                Thread.sleep(1000 * 20);
+                //异步执行的，即使给了前端响应，任务提交到线程池当中
+                System.out.println("async execute task : " + LocalDateTime.now().toString());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        return vo;
+    }
 }
 

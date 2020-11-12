@@ -25,6 +25,12 @@ public class JacksonTest {
 
         ObjectMapper objectMapper = new ObjectMapper();
 
+        String nodeJson = " {\"key1\":\"value1\",\"key2\":\"value2\"}";
+
+
+        ObjectNode readTree1 = (ObjectNode)objectMapper.readTree(nodeJson);
+
+
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         Employee employee = new Employee();
         employee.setId("1");
@@ -43,26 +49,29 @@ public class JacksonTest {
 
         ObjectNode node = objectMapper.valueToTree(employee);
 
+        JsonNode nameNode = node.get("name");
+
         JsonNode mapNode = node.get("map");
 
-        ObjectNode put = ((ObjectNode) mapNode).put("new_field", "intelliJ");
 
-        Map<String,String> fieldMap = objectMapper.readValue(mapNode.toString(), new TypeReference<Map<String,String>>() {
-        });
+        Employee e = objectMapper.readValue(node.toString(), Employee.class);
+
+        ObjectNode canPutObjNode = ((ObjectNode) mapNode).put("new_field", "intelliJ");
+
+        employee.setId(canPutObjNode.toString());
+
+        String s2 = objectMapper.writeValueAsString(employee);
+
+        Map<String,String> fieldMap = objectMapper.readValue(mapNode.toString(), Map.class);
 
         System.out.println(fieldMap.size());
 
-        JsonNode nameNode = mapNode.get("name");
-
         JsonNode readTree = objectMapper.readTree(result);
-
-
 
         JsonNode idNode = readTree.get("id");
 
         JSONObject jsonObject = new JSONObject(objectMapper.writeValueAsString(employee));
         jsonObject.get("name");
-
 
         System.out.println("-------------------------------");
         System.out.println(result);
@@ -83,14 +92,11 @@ public class JacksonTest {
         });
 
         System.out.println(employeeList);
-
         String bi = "zx03";
         String s = bi.toUpperCase();
 
         if(s.startsWith("zx")){
             System.out.println("prefix is zx");
         }
-
-
     }
 }
