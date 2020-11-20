@@ -2,6 +2,7 @@ package com.java.code;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
@@ -29,10 +30,12 @@ public class DateTime {
 
         System.out.println("当前时间" + nowTime);
 
-        //获取毫秒数
-        Long milliSecond = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli();
 
-        Instant instant;
+        LocalDateTime theNowDate = LocalDateTime.now();
+        //获取毫秒数
+        Long milliSecond = theNowDate.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+
+        Long zoneMill = theNowDate.atZone(ZoneId.of("Asia/Shanghai")).toInstant().toEpochMilli();
 
         LocalDateTime beforeSixMonth = localDateTime.minusMonths(6);
 
@@ -54,7 +57,5 @@ public class DateTime {
 
         }
         System.out.println(a);
-
-
     }
 }

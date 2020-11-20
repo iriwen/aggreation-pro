@@ -4,6 +4,8 @@ package com.java.code.controller;
 import com.java.code.entity.CommonVo;
 import com.java.code.entity.PopuBase;
 import com.java.code.entity.PopuBaseService;
+import com.java.code.queue.DelayQueueTest1;
+import com.java.code.queue.DelayTaskItem;
 import com.java.code.service.PopulationService;
 import com.java.code.util.JsonMapper;
 import org.slf4j.Logger;
@@ -25,6 +27,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -36,6 +40,8 @@ import java.util.concurrent.CompletableFuture;
 @RequestMapping(value = "/test")
 public class PopulationController {
 
+    @Autowired
+    DelayQueueTest1 delayService;
 
     private final Logger logger = LoggerFactory.getLogger(PopulationController.class);
     @Autowired
@@ -174,6 +180,29 @@ public class PopulationController {
                 e.printStackTrace();
             }
         });
+        ZoneId zone = ZoneId.of("Asia/Shanghai");
+        return vo;
+    }
+
+
+    @RequestMapping(value = "/delayTask", method = RequestMethod.GET)
+    public CommonVo delayTask() {
+
+        LocalDateTime now = LocalDateTime.now();
+        logger.info("--------current time mill :{} ", now.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+        long epochMill1 = now.plusMinutes(1).toInstant(ZoneOffset.of("+8")).toEpochMilli();
+
+        DelayTaskItem item = new DelayTaskItem("task-target", epochMill1);
+
+
+        logger.info("tasks in queue is : {}" , DelayQueueTest1.delayTaskQueue.size() );
+        delayService.addDelayTask(item);
+
+        CommonVo vo = new CommonVo();
+        vo.setCode("2020");
+        vo.setMessage("future success");
+        vo.setData("---------");
+
         return vo;
     }
 }
