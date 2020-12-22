@@ -1,8 +1,10 @@
 package com.java.code.controller;
 
+import com.alibaba.excel.EasyExcel;
 import com.java.code.easyexcel.model.ExportModel;
 import com.java.code.easyexcel.model.ImportModel;
 import com.java.code.easyexcel.util.ExcelUtil;
+import com.java.code.util.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +32,23 @@ public class ExcelOperationController {
     @PostMapping(value = "/import")
     public List<ImportModel> read(@RequestParam("file") MultipartFile excel) {
         Objects.requireNonNull(excel);
+
+
+
         List<ImportModel> importModels = ExcelUtil.readExcel(excel, ImportModel.class, 0);
-        logger.info("data info : {}",importModels.size());
+        logger.info("data info : {}",importModels.size()+"; 操作的线程信息 ：" + Thread.currentThread().getName());
+        return importModels;
+    }
+
+    @GetMapping(value = "/parseLocalExcel")
+    public List<ImportModel> read() {
+
+        String filePath = "/home/worker/文档/导入的模板文件.xlsx";
+
+        List<ImportModel> importModels = EasyExcel.read(filePath).head(ImportModel.class).sheet().doReadSync();
+
+        logger.info("parse result : {}", JsonMapper.toJsonString(importModels));
+
         return importModels;
     }
 
@@ -62,6 +79,7 @@ public class ExcelOperationController {
     }
 
     private List<List<String>> head() {
+
         List<List<String>> headList = new ArrayList<>();
         List<String> nameHead = new ArrayList<>();
         nameHead.add("姓名");

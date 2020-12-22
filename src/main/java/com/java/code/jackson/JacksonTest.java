@@ -98,5 +98,8 @@ public class JacksonTest {
         if(s.startsWith("zx")){
             System.out.println("prefix is zx");
         }
+
+
+        //gson.fromJson(result, new TypeToken<PrepCommonResp<LeaderboardResp>>(){}.getType());
     }
 }

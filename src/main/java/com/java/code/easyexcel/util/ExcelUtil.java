@@ -11,7 +11,6 @@ import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import com.java.code.easyexcel.listener.ExcelListener;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
-import org.springframework.beans.BeanUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +21,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -59,34 +57,7 @@ public class ExcelUtil {
         return BeanConvert.objectConvertBean(excelListener.getDataList(), clazz);
     }
 
-    public static <T> List<T> objectConvert2Bean(List<?> sources, Class<T> targetClass) {
-        List<?> sourcesObj = sources;
-        if (sourcesObj == null) {
-            sourcesObj = Collections.emptyList();
-        }
-        List<T> targets = new ArrayList<>(sourcesObj.size());
-        convert(sourcesObj, targets, targetClass);
-        return targets;
-    }
 
-    private static <T> void convert(List<?> sources, List<T> targets, Class<T> targetClass) {
-        if (sources == null) {
-            return;
-        }
-        if (targets == null) {
-            return;
-        }
-        targets.clear();
-        for (Object obj : sources) {
-            try {
-                T target = targetClass.newInstance();
-                targets.add(target);
-                BeanUtils.copyProperties(obj, target);
-            } catch (Exception e) {
-                return;
-            }
-        }
-    }
 
     /**
      * 读取Excel（多个sheet可以用同一个实体类解析）

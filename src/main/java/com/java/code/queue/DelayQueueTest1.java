@@ -20,6 +20,7 @@ import java.util.stream.Stream;
 @Service
 public class DelayQueueTest1 {
     public static final DelayQueue<DelayTaskItem> delayTaskQueue = new DelayQueue<>();
+
     private static final Logger logger = LoggerFactory.getLogger(DelayQueueTest1.class);
 
     public DelayQueueTest1() {
