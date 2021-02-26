@@ -32,9 +32,6 @@ public class ExcelOperationController {
     @PostMapping(value = "/import")
     public List<ImportModel> read(@RequestParam("file") MultipartFile excel) {
         Objects.requireNonNull(excel);
-
-
-
         List<ImportModel> importModels = ExcelUtil.readExcel(excel, ImportModel.class, 0);
         logger.info("data info : {}",importModels.size()+"; 操作的线程信息 ：" + Thread.currentThread().getName());
         return importModels;
@@ -44,11 +41,9 @@ public class ExcelOperationController {
     public List<ImportModel> read() {
 
         String filePath = "/home/worker/文档/导入的模板文件.xlsx";
-
         List<ImportModel> importModels = EasyExcel.read(filePath).head(ImportModel.class).sheet().doReadSync();
 
         logger.info("parse result : {}", JsonMapper.toJsonString(importModels));
-
         return importModels;
     }
 
