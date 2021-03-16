@@ -39,3 +39,9 @@ mybatis:
 #  level:
 #    com.java.code.mapper: debug
 
+apollo:
+  meta: http://200.200.6.13:1121
+  bootstrap:
+    enabled: true
+    eagerLoad:
+      enabled: true

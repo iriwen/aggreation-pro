@@ -2,7 +2,9 @@ package com.java.code.date;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.time.ZoneOffset;
+import java.time.temporal.TemporalAdjusters;
 
 /**
  * created by yuxiaodong01 on 2020/12/01.
@@ -10,8 +12,9 @@ import java.time.ZoneOffset;
 public class TheLocalDate8 {
 
     public static void main(String[] args) {
-        testLocalDate();
-        testSplit();
+        //testLocalDate();
+        //testSplit();
+        isFirstDayOfMonth() ;
     }
 
     public static  void testLocalDate(){
@@ -39,4 +42,12 @@ public class TheLocalDate8 {
         String mobile = "15669923501";
         String[] res = mobile.split(",");
     }
+
+    private static boolean isFirstDayOfMonth() {
+        LocalDate today = LocalDate.now();
+        LocalDate lastDayOfMonth = today.with(TemporalAdjusters.firstDayOfMonth());
+        int days = Period.between(today, lastDayOfMonth).getDays();
+        return days == 0;
+    }
+
 }
