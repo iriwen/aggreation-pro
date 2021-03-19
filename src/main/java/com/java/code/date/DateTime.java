@@ -12,13 +12,14 @@ import java.time.format.DateTimeFormatter;
  */
 public class DateTime {
 
-    static  DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void main(String[] args) {
         getDateByMilliSecs(1606964672084l);
+        //parseNowTime();
     }
 
-    private static void getDateByMilliSecs(long millis){
+    private static void getDateByMilliSecs(long millis) {
 
         LocalDateTime now = LocalDateTime.now();
         now.format(dateTimeFormatter);
@@ -69,6 +70,7 @@ public class DateTime {
 
         String sixMonthsAgo = beforeSixMonth.format(formatter);
 
+
         System.out.println("6个月以前的时间：" + sixMonthsAgo);
 
         Instant toInstant = beforeSixMonth.toInstant(ZoneOffset.of("+8"));
@@ -84,7 +86,6 @@ public class DateTime {
             Throwable cause = e.getCause();
         }
         System.out.println(a);
+
     }
-
-
 }
