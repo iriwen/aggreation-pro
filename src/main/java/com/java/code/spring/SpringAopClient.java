@@ -1,5 +1,6 @@
-package com.java.code.aop;
+package com.java.code.spring;
 
+import com.java.code.spring.aop.MyAopService;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;

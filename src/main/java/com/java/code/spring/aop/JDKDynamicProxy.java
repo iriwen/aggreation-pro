@@ -1,4 +1,4 @@
-package com.java.code.aop;
+package com.java.code.spring.aop;
 
 import lombok.extern.slf4j.Slf4j;
 

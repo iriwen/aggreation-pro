@@ -1,4 +1,4 @@
-package com.java.code.spring;
+package com.java.code.spring.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

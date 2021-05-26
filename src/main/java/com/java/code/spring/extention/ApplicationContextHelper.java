@@ -1,4 +1,4 @@
-package com.java.code.spring;
+package com.java.code.spring.extention;
 
 
 import org.springframework.beans.BeansException;

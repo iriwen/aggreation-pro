@@ -26,7 +26,7 @@ import org.springframework.core.io.ClassPathResource;
  *  属性信息值解析并装配到BeanDefinition ，相应的bean注册之后 会触发观察者中的方法
  *
  */
-public class SpringClient {
+public class IocClient {
 
     public static void main(String[] args) {
 

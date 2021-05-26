@@ -1,4 +1,4 @@
-package com.java.code.spring;
+package com.java.code.spring.event;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class MyApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
+public class MyAppListener implements ApplicationListener<ContextRefreshedEvent> {
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {

@@ -1,7 +1,8 @@
-package com.java.code.spring;
+package com.java.code.spring.extention;
 
 import com.java.code.annotation.ManjaroService;
 import com.java.code.controller.ExcelOperationController;
+import com.java.code.spring.event.MyAppListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -28,7 +29,8 @@ public class DefinetionInitializeOperation implements InitializingBean {
         list = Stream.of(strs).collect(Collectors.toList());
         //Collections.addAll(list, strs);
         logger.info("list size : {}",list.size());
-        MyApplicationListener myApplicationListener = ApplicationContextHelper.getBean(MyApplicationListener.class);
+        MyAppListener myApplicationListener = ApplicationContextHelper.getBean(MyAppListener.class);
+
         logger.info("get bean from application Context :{}", myApplicationListener, getClass());
     }
 }

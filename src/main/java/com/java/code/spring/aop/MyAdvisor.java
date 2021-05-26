@@ -1,4 +1,4 @@
-package com.java.code.aop;
+package com.java.code.spring.aop;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -19,5 +19,20 @@ public class MyAdvisor implements MethodInterceptor {
         System.out.println("after  invoke  method ");
 
         return result;
+    }
+
+    /*
+     *
+     * 前置通知
+     */
+    public void beforeLogAdvice(){
+        System.out.println("log before ....");
+    }
+
+    /*
+     * 后置通知
+     */
+    public void afterLogAdvice(){
+        System.out.println("log after ....");
     }
 }

@@ -1,4 +1,4 @@
-package com.java.code.aop;
+package com.java.code.spring.aop;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -11,34 +11,21 @@ public class LogHandler  implements InvocationHandler {
     //被代理的目标对象
     private final Object target;
 
+    private final MyAdvisor myAdvisor = new MyAdvisor();
+
     public LogHandler(Object target) {
         this.target = target;
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
-        beforeLog();
+        myAdvisor.beforeLogAdvice();
         Object result  = method.invoke(target, args);
-        afterLog();
+        myAdvisor.afterLogAdvice();
         System.out.println(target.getClass().getName()+ " : " + target.getClass().hashCode());
         System.out.println(proxy.getClass().getName()+ " : " + proxy.getClass().hashCode());
 
         return result;
     }
 
-    /*
-    *
-    * 前置通知
-    */
-    private void beforeLog(){
-        System.out.println("log before ....");
-    }
-
-    /*
-     * 后置通知
-     */
-    private void afterLog(){
-        System.out.println("log after ....");
-    }
 }

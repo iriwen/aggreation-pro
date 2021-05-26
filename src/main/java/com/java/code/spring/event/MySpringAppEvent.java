@@ -1,4 +1,4 @@
-package com.java.code.spring;
+package com.java.code.spring.event;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;

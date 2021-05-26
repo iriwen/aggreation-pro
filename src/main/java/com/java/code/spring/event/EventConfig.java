@@ -1,4 +1,4 @@
-package com.java.code.spring;
+package com.java.code.spring.event;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
