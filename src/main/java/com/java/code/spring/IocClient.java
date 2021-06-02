@@ -43,7 +43,7 @@ public class IocClient {
 
         Employee employee = (Employee)factory.getBean("employee");
 
-        System.out.println(employee.getName()+ "; id = "  + employee.getId() );
+        System.out.println(employee.getName()+ "; id = "  + employee.getId());
 
     }
 }
