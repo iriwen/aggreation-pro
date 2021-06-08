@@ -1,7 +1,7 @@
 package com.java.code.zhss;
 
 /**
- * created by yuxiaodong01 on 2020/09/24.
+ * created by iriwen on 2020/09/24.
  */
 public class Interupt01 extends Thread{
 

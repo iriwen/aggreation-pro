@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * created by yuxiaodong01 on 2020/04/20.
+ * created by iriwen on 2020/04/20.
  */
 public class FutureExample01 {
 

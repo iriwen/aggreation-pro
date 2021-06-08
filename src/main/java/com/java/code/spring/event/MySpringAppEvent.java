@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;
 
 /**
- * created by yuxiaodong01 on 2021/02/26.
+ * created by iriwen on 2021/02/26.
  */
 @Slf4j
 public class MySpringAppEvent extends ApplicationEvent {

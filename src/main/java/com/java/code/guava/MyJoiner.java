@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * created by yuxiaodong01 on 2020/04/22.
+ * created by iriwen on 2020/04/22.
  */
 public class MyJoiner {
 

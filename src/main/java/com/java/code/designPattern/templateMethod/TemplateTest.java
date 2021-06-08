@@ -5,7 +5,7 @@ import com.java.code.designPattern.singleton.Singleton;
 import java.util.ArrayList;
 
 /**
- * created by yuxiaodong01 on 2020/05/10.
+ * created by iriwen on 2020/05/10.
  */
 public class TemplateTest {
     public static void main(String[] args) {

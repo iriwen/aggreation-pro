@@ -1,7 +1,7 @@
 package com.java.code.gc;
 
 /**
- * created by yuxiaodong01 on 2020/06/10.
+ * created by iriwen on 2020/06/10.
  *
  * StackOverflow
  * <Description> StackOverflowError<br>

@@ -1,7 +1,7 @@
 package com.java.code.inherit;
 
 /**
- * created by yuxiaodong01 on 2020/06/18.
+ * created by iriwen on 2020/06/18.
  */
 public class Son extends Parent {
 

@@ -1,7 +1,7 @@
 package com.java.code.designPattern.templateMethod;
 
 /**
- * created by yuxiaodong01 on 2020/05/10.
+ * created by iriwen on 2020/05/10.
  */
 public abstract class TemplateMethod {
 

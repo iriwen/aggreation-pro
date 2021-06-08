@@ -45,6 +45,7 @@ apollo:
     enabled: true
     eagerLoad:
       enabled: true
+debug: true
 # 异步线程配置
 # 配置核心线程数
 async:

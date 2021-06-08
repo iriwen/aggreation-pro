@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * created by yuxiaodong01 on 2020/06/09.
+ * created by iriwen on 2020/06/09.
  */
 public class FullGC01 {
 

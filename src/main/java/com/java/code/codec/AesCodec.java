@@ -10,7 +10,7 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 
 /**
- * created by yuxiaodong01 on 2021/04/20.
+ * created by iriwen on 2021/04/20.
  */
 @Slf4j
 public class AesCodec {

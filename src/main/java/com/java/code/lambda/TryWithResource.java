@@ -3,7 +3,7 @@ package com.java.code.lambda;
 import java.io.IOException;
 
 /**
- * created by yuxiaodong01 on 2020/04/23.
+ * created by iriwen on 2020/04/23.
  */
 public class TryWithResource {
 

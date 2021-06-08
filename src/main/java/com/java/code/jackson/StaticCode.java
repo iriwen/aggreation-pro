@@ -1,7 +1,7 @@
 package com.java.code.jackson;
 
 /**
- * created by yuxiaodong01 on 2020/10/27.
+ * created by iriwen on 2020/10/27.
  */
 public class StaticCode {
 

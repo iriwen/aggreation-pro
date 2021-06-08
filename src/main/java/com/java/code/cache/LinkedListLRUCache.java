@@ -1,7 +1,7 @@
 package com.java.code.cache;
 
 /**
- * created by yuxiaodong01 on 2020/06/15.
+ * created by iriwen on 2020/06/15.
  * 双向链表 + hashmap 实现LRU  cache
  */
 public class LinkedListLRUCache<K,V> implements LRUCache<K,V>{

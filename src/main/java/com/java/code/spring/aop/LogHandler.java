@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * created by yuxiaodong01 on 2020/06/27.
+ * created by iriwen on 2020/06/27.
  */
 @Slf4j
 public class LogHandler  implements InvocationHandler {

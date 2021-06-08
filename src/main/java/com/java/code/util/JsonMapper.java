@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * created by yuxiaodong01 on 2020/10/20.
+ * created by iriwen on 2020/10/20.
  */
 public class JsonMapper {
 

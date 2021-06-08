@@ -4,10 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import javax.websocket.RemoteEndpoint;
-
 /**
- * created by yuxiaodong01 on 2021/06/02.
+ * created by iriwen on 2021/06/02.
  */
 @Service
 @Slf4j

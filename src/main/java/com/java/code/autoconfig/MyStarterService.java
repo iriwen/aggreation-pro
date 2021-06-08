@@ -1,7 +1,7 @@
 package com.java.code.autoconfig;
 
 /**
- * created by yuxiaodong01 on 2020/06/24.
+ * created by iriwen on 2020/06/24.
  */
 
 public class MyStarterService {

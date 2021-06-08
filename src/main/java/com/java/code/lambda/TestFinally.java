@@ -1,7 +1,7 @@
 package com.java.code.lambda;
 
 /**
- * created by yuxiaodong01 on 2020/05/06.
+ * created by iriwen on 2020/05/06.
  */
 public class TestFinally {
     public static void main(String[] args) {

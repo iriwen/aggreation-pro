@@ -4,7 +4,7 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
 /**
- * created by yuxiaodong01 on 2020/06/26.
+ * created by iriwen on 2020/06/26.
  */
 public class MyAdvisor implements MethodInterceptor {
 

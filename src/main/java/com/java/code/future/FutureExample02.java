@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * created by yuxiaodong01 on 2020/04/20.
+ * created by iriwen on 2020/04/20.
  */
 public class FutureExample02 {
     public static void main(String[] args) throws ExecutionException, InterruptedException {

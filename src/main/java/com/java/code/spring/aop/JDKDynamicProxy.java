@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Proxy;
 
 /**
- * created by yuxiaodong01 on 2020/06/27.
+ * created by iriwen on 2020/06/27.
  */
 @Slf4j
 public class JDKDynamicProxy {

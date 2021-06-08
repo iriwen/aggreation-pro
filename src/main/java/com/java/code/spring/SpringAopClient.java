@@ -7,7 +7,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * created by yuxiaodong01 on 2020/06/26.
+ * created by iriwen on 2020/06/26.
  */
 public class SpringAopClient {
 

@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * created by yuxiaodong01 on 2020/10/20.
+ * created by iriwen on 2020/10/20.
  */
 
 public class JacksonManualHttpMessageConverter extends MappingJackson2HttpMessageConverter {

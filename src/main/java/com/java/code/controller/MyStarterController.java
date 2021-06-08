@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * created by yuxiaodong01 on 2020/06/24.
+ * created by iriwen on 2020/06/24.
  */
 @RestController
 @RequestMapping(value = "/starter")

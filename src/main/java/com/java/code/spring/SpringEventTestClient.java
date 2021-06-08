@@ -5,7 +5,7 @@ import com.java.code.spring.event.EventsPublisher;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * created by yuxiaodong01 on 2021/05/25.
+ * created by iriwen on 2021/05/25.
  */
 public class SpringEventTestClient {
 

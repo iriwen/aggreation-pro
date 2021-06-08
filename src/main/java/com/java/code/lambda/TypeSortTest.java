@@ -2,7 +2,6 @@ package com.java.code.lambda;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.apache.ibatis.annotations.ConstructorArgs;
 
 import java.util.Comparator;
 import java.util.HashMap;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * created by yuxiaodong01 on 2021/03/25.
+ * created by iriwen on 2021/03/25.
  */
 public class TypeSortTest {
 

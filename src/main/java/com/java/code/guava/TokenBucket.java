@@ -1,7 +1,7 @@
 package com.java.code.guava;
 
 /**
- * created by yuxiaodong01 on 2020/06/05.
+ * created by iriwen on 2020/06/05.
  */
 public class TokenBucket {
 

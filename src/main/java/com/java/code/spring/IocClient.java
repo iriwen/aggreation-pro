@@ -7,7 +7,7 @@ import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
 
 /**
- * created by yuxiaodong01 on 2020/06/18.
+ * created by iriwen on 2020/06/18.
  *
  * spring 中的environment环境提供了 profiles 和 properties的封装,可以 1对程序各种属性的配置，2对程序运行环境的profile的设定
  *

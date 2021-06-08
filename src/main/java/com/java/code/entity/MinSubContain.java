@@ -3,7 +3,7 @@ package com.java.code.entity;
 import java.util.Objects;
 
 /**
- * created by yuxiaodong01 on 2020/05/21.
+ * created by iriwen on 2020/05/21.
  */
 public class MinSubContain {
 

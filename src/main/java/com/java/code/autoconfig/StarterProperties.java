@@ -3,7 +3,7 @@ package com.java.code.autoconfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * created by yuxiaodong01 on 2020/06/24.
+ * created by iriwen on 2020/06/24.
  */
 
 @ConfigurationProperties(prefix = "spring.starter")
