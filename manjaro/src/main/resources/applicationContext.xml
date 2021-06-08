@@ -5,18 +5,18 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--init-method  lazy-init 一个bean节点最终映射到一个BeanDefinitionHolder上 -->
-    <bean id="employee" class="code.entity.Employee" lazy-init="false" init-method="initMethod">
+    <bean id="employee" class="com.manjaro.code.entity.Employee" lazy-init="false" init-method="initMethod">
         <property name="id" value="1"/>
         <property name="name" value="test"/>
     </bean>
 
-    <bean id="myAdvisor" class="code.spring.aop.MyAdvisor"/>
-    <bean id="myAopService" class="code.spring.aop.MyAopServiceImpl"/>
+    <bean id="myAdvisor" class="com.manjaro.code.spring.aop.MyAdvisor"/>
+    <bean id="myAopService" class="com.manjaro.code.spring.aop.MyAopServiceImpl"/>
     <!--ProxyFactoryBean 里面包装了被代理的实例，以及被代理实例所实现的接口，还有advisor集合，因为可以有多个切面 -->
     <bean id="myAdvisedService" class="org.springframework.aop.framework.ProxyFactoryBean">
 
         <property name="proxyInterfaces">
-            <value>code.spring.aop.MyAopService</value>
+            <value>com.manjaro.code.spring.aop.MyAopService</value>
         </property>
 
         <property name="interceptorNames">
