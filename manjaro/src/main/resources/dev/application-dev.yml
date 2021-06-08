@@ -62,11 +62,10 @@ debug: true
 # 配置核心线程数
 async:
   executor:
-      thread:
-        corePoolSize: 5
-        # 配置最大线程数
-        maxPoolSize: 5
-        # 配置队列大小
-        queueCapacity: 999
-        # 配置线程池中的线程的名称前缀
-        namePrefix: async-service-
+    corePoolSize: 5
+    # 配置最大线程数
+    maxPoolSize: 5
+    # 配置队列大小
+    queueCapacity: 999
+    # 配置线程池中的线程的名称前缀
+    namePrefix: async-service-

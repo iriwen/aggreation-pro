@@ -1,6 +1,7 @@
 package com.manjaro.code.executor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.util.concurrent.ListenableFuture;
 
@@ -13,7 +14,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 
 @Slf4j
-public class VisiableThreadPoolTaskExecutor  extends ThreadPoolTaskExecutor {
+public class VisiableThreadPoolTaskExecutor  extends ThreadPoolTaskExecutor implements InitializingBean {
 
     private void showThreadPoolInfo(String prefix) {
         ThreadPoolExecutor threadPoolExecutor = getThreadPoolExecutor();

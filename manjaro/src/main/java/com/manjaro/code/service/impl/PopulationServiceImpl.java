@@ -1,16 +1,17 @@
 package com.manjaro.code.service.impl;
 
 
-
-import com.manjaro.code.mapper.PopulationMapper;
+import com.manjaro.cache.CacheDurationConfig;
+import com.manjaro.code.mapper.PopuBaseMapper;
 import com.manjaro.code.service.PopulationService;
 import com.manjaro.json.entity.PopuBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.List;
 
@@ -22,10 +23,14 @@ public class PopulationServiceImpl implements PopulationService {
 
     private final Logger logger = LoggerFactory.getLogger(PopulationServiceImpl.class);
 
-    @Resource
-    private PopulationMapper populationMapper;
+    //@Resource
+    //private PopulationMapper populationMapper;
+
+    @Autowired
+    private PopuBaseMapper populationMapper;
 
     @Override
+    @Cacheable(cacheNames = CacheDurationConfig.DAY_7,key = "#root.method")
     public List<PopuBase> getPopulationList() {
         return populationMapper.getPopulationList();
     }

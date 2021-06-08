@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.manjaro.code.mapper.PopuBaseMapper">
     <!--auto generated Code-->
-    <resultMap id="AllColumnMap" type="com.manjaro.json.jackson.entity.PopuBase">
+    <resultMap id="AllColumnMap" type="com.manjaro.json.entity.PopuBase">
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>
@@ -108,5 +108,23 @@
         </set>
         WHERE id = #{pojo.id}
     </update>
+
+
+    <select id="getCategory" resultMap="AllColumnMap">
+        select * from popu_base order by create_time limit 10 ;
+    </select>
+
+    <select id="queryPopulationByTag" resultMap="AllColumnMap">
+        select * from popu_base order by create_time limit 10 ;
+    </select>
+
+    <select id="getPopulationListByPage" resultMap="AllColumnMap">
+        select * from popu_base order by create_time desc limit #{pageSize} offset #{offset} ;
+    </select>
+
+    <select id="getPopulationList" resultMap="AllColumnMap">
+        select * from popu_base order by create_time desc ;
+    </select>
+
 </mapper>
 

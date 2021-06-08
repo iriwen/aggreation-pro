@@ -2,6 +2,7 @@ package com.manjaro.json.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  */
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class PopuBase {
+public class PopuBase implements Serializable {
 
     List<Long> ids;
 

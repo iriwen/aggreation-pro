@@ -7,7 +7,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.cache.CacheKeyPrefix;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisClusterConfiguration;
@@ -16,11 +15,9 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
-import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import org.springframework.format.support.DefaultFormattingConversionService;
 
 import java.time.Duration;
 
@@ -31,14 +28,14 @@ import java.time.Duration;
 @Configuration
 public class RedisConfig {
 
-    @Bean
+   /* @Bean
     @Qualifier("cacheRedisProperties")
     @ConfigurationProperties(prefix = "spring.redis")
     public RedisProperties cacheRedisProperties() {
         return new RedisProperties();
-    }
+    }*/
 
-    @Bean
+    /*@Bean
     @Qualifier("cacheFactory")
     public LettuceConnectionFactory cacheRedisConnectionFactory(RedisProperties redisProperties) {
         if (redisProperties != null) {
@@ -48,7 +45,7 @@ public class RedisConfig {
             return new LettuceConnectionFactory(redisClusterConfiguration, getLettuceClientConfiguration(redisProperties));
         }
         return null;
-    }
+    }*/
 
     public LettuceClientConfiguration getLettuceClientConfiguration(RedisProperties redisProperties) {
         GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
@@ -104,7 +101,7 @@ public class RedisConfig {
 
        RedisCacheManager redisCacheManager = redisCacheManagerBuilder.transactionAware().build();
 
-       RedisCacheManager redisCacheManager2 = RedisCacheManager.RedisCacheManagerBuilder
+      /* RedisCacheManager redisCacheManager2 = RedisCacheManager.RedisCacheManagerBuilder
                 // Redis 连接工厂
                 .fromConnectionFactory(redisTemplate.getConnectionFactory())
                 .cacheDefaults(getCacheConfigurationWithTtl(redisTemplate, 60 * 60))
@@ -113,7 +110,7 @@ public class RedisConfig {
                 .withCacheConfiguration("cache_post", getCacheConfigurationWithTtl(redisTemplate, 120))
                 // 配置同步修改或删除 put/evict
                 .transactionAware()
-                .build();
+                .build();*/
 
        return redisCacheManager ;
 
@@ -158,7 +155,7 @@ public class RedisConfig {
                 // 不缓存null
                 .disableCachingNullValues()
                 // 缓存数据保存1小时
-                .entryTtl(Duration.ofMinutes(cacheConfig.getExpire() * 60));
+                .entryTtl(Duration.ofDays(cacheConfig.getExpire()));
 
         return redisCacheConfiguration ;
 
