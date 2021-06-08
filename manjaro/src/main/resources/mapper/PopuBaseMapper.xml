@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.manjaro.code.mapper.PopuBaseMapper">
     <!--auto generated Code-->
-    <resultMap id="AllColumnMap" type="com.manjaro.code.entity.PopuBase">
+    <resultMap id="AllColumnMap" type="com.manjaro.json.jackson.entity.PopuBase">
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>

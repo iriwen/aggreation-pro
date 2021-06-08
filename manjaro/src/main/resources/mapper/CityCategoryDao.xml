@@ -3,7 +3,7 @@
 <mapper namespace="com.manjaro.code.mapper.CityCategoryMapper">
 
     <!--auto generated Code-->
-    <resultMap id="AllColumnMap" type="com.manjaro.code.entity.PopuBase">
+    <resultMap id="AllColumnMap" type="com.manjaro.json.jackson.entity.PopuBase">
         <result column="id" property="id"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>

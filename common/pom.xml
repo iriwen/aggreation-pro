@@ -11,6 +11,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>common</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>distro-json</module>
+        <module>distro-cache</module>
+    </modules>
 
 
 </project>
