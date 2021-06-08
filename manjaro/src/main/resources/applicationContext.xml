@@ -10,13 +10,13 @@
         <property name="name" value="test"/>
     </bean>
 
-    <bean id="myAdvisor" class="com.manjaro.tools.spring.aop.MyAdvisor"/>
-    <bean id="myAopService" class="com.manjaro.tools.spring.aop.MyAopServiceImpl"/>
+    <bean id="myAdvisor" class="com.manjaro.spring.aop.MyAdvisor"/>
+    <bean id="myAopService" class="com.manjaro.spring.aop.MyAopServiceImpl"/>
     <!--ProxyFactoryBean 里面包装了被代理的实例，以及被代理实例所实现的接口，还有advisor集合，因为可以有多个切面 -->
     <bean id="myAdvisedService" class="org.springframework.aop.framework.ProxyFactoryBean">
 
         <property name="proxyInterfaces">
-            <value>com.manjaro.tools.spring.aop.MyAopService</value>
+            <value>com.manjaro.spring.aop.MyAopService</value>
         </property>
 
         <property name="interceptorNames">

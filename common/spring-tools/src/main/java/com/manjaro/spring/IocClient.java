@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring;
+package com.manjaro.spring;
 
 
 import com.manjaro.json.entity.Employee;

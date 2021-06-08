@@ -1,6 +1,6 @@
-package com.manjaro.tools.spring;
+package com.manjaro.spring;
 
-import com.manjaro.tools.spring.aop.MyAopService;
+import com.manjaro.spring.aop.MyAopService;
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;

@@ -1,8 +1,7 @@
 package com.manjaro.code.service;
 
 
-
-import com.manjaro.code.entity.PopuBase;
+import com.manjaro.json.entity.PopuBase;
 
 import java.util.List;
 

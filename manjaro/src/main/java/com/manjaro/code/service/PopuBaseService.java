@@ -1,6 +1,7 @@
-package com.manjaro.json.entity;
+package com.manjaro.code.service;
 
 import com.manjaro.code.mapper.PopuBaseMapper;
+import com.manjaro.json.entity.PopuBase;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

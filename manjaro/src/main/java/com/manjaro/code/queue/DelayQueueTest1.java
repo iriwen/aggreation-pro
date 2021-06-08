@@ -1,6 +1,6 @@
 package com.manjaro.code.queue;
 
-import com.manjaro.code.util.JsonMapper;
+import com.manjaro.json.jackson.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

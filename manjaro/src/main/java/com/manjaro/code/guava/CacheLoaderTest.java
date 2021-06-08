@@ -1,9 +1,10 @@
 package com.manjaro.code.guava;
 
-import com.manjaro.code.entity.Employee;
+
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+import com.manjaro.json.entity.Employee;
 
 import java.util.concurrent.TimeUnit;
 

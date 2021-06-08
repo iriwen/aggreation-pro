@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.event;
+package com.manjaro.spring.event;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

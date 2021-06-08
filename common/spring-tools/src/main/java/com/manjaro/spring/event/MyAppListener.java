@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.event;
+package com.manjaro.spring.event;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;

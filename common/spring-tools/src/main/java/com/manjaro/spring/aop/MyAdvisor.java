@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.aop;
+package com.manjaro.spring.aop;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;

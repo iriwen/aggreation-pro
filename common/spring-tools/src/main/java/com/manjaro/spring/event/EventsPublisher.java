@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.event;
+package com.manjaro.spring.event;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

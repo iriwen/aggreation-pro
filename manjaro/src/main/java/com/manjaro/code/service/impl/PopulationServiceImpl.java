@@ -1,9 +1,10 @@
 package com.manjaro.code.service.impl;
 
 
-import com.manjaro.code.entity.PopuBase;
+
 import com.manjaro.code.mapper.PopulationMapper;
 import com.manjaro.code.service.PopulationService;
+import com.manjaro.json.entity.PopuBase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

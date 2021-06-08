@@ -1,6 +1,7 @@
 package com.manjaro.code.codec;
 
-import com.manjaro.code.util.JsonMapper;
+
+import com.manjaro.json.jackson.JsonMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 

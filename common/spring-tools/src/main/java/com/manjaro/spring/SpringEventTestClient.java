@@ -1,7 +1,7 @@
-package com.manjaro.tools.spring;
+package com.manjaro.spring;
 
-import com.manjaro.tools.spring.event.EventConfig;
-import com.manjaro.tools.spring.event.EventsPublisher;
+import com.manjaro.spring.event.EventConfig;
+import com.manjaro.spring.event.EventsPublisher;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

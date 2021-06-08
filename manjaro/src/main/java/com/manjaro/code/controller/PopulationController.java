@@ -1,13 +1,15 @@
 package com.manjaro.code.controller;
 
 
-import com.manjaro.code.entity.CommonVo;
-import com.manjaro.code.entity.PopuBase;
-import com.manjaro.code.entity.PopuBaseService;
+
 import com.manjaro.code.queue.DelayQueueTest1;
 import com.manjaro.code.queue.DelayTaskItem;
+import com.manjaro.code.service.PopuBaseService;
 import com.manjaro.code.service.PopulationService;
-import com.manjaro.code.util.JsonMapper;
+
+import com.manjaro.json.entity.CommonVo;
+import com.manjaro.json.entity.PopuBase;
+import com.manjaro.json.jackson.JsonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +48,7 @@ public class PopulationController {
     private final Logger logger = LoggerFactory.getLogger(PopulationController.class);
     @Autowired
     PopuBaseService popuBaseService;
+
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
 

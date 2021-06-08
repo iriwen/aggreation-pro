@@ -1,6 +1,7 @@
 package com.manjaro.code.mapper;
 
-import com.manjaro.code.entity.PopuBase;
+
+import com.manjaro.json.entity.PopuBase;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

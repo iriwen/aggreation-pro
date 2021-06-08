@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.aop;
+package com.manjaro.spring.aop;
 
 /**
  * created by iriwen on 2020/06/26.

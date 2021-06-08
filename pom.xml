@@ -12,8 +12,6 @@
     <modules>
         <module>common</module>
         <module>manjaro</module>
-        <module>spring-cahce</module>
-        <module>spring-tools</module>
     </modules>
 
     <properties>

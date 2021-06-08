@@ -1,6 +1,7 @@
 package com.manjaro.json.entity;
 
-import com.manjaro.code.util.JsonMapper;
+
+import com.manjaro.json.jackson.JsonMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;

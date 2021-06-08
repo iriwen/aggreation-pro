@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.aop;
+package com.manjaro.spring.aop;
 
 import lombok.extern.slf4j.Slf4j;
 

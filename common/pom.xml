@@ -15,6 +15,7 @@
     <modules>
         <module>distro-json</module>
         <module>distro-cache</module>
+        <module>spring-tools</module>
     </modules>
 
 

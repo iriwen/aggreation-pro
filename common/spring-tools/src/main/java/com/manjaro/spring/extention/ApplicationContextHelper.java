@@ -1,4 +1,4 @@
-package com.manjaro.tools.spring.extention;
+package com.manjaro.spring.extention;
 
 
 import org.springframework.beans.BeansException;
