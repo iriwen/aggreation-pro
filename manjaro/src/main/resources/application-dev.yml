@@ -4,7 +4,7 @@ server:
     context-path: /manjaro
 spring:
   application:
-    name: manjaro01
+    name: manjaro
   starter:
     name: theStarterFailedBySpace
   datasource:
