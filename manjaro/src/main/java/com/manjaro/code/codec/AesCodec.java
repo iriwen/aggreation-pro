@@ -1,7 +1,7 @@
 package com.manjaro.code.codec;
 
 
-import com.manjaro.json.jackson.JsonMapper;
+import com.manjaro.json.jackson.JacksonMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 
@@ -105,8 +105,8 @@ public class AesCodec {
             byte[] decryptedData = cipher.doFinal(byteMi);
             String clear = new String(decryptedData, StandardCharsets.UTF_8);
 
-            CouponDto couponDto = JsonMapper.getMapper().readValue(clear, CouponDto.class);
-            log.info("coupon:{}",JsonMapper.toJsonString(couponDto));
+            CouponDto couponDto = JacksonMapper.getMapper().readValue(clear, CouponDto.class);
+            log.info("coupon:{}", JacksonMapper.toJsonString(couponDto));
             return clear ;
 
         } catch (Exception e) {

@@ -1,6 +1,6 @@
 package com.manjaro.code.queue;
 
-import com.manjaro.json.jackson.JsonMapper;
+import com.manjaro.json.jackson.JacksonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -64,7 +64,7 @@ public class DelayQueueTest1 {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                logger.info(JsonMapper.toJsonString(item));
+                logger.info(JacksonMapper.toJsonString(item));
             });
         } catch (Exception e) {
             e.printStackTrace();

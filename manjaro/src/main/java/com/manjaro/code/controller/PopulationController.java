@@ -9,7 +9,7 @@ import com.manjaro.code.service.PopulationService;
 
 import com.manjaro.json.entity.CommonVo;
 import com.manjaro.json.entity.PopuBase;
-import com.manjaro.json.jackson.JsonMapper;
+import com.manjaro.json.jackson.JacksonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,14 +86,14 @@ public class PopulationController {
 
     @RequestMapping(value = "/deletePopuBase", method = RequestMethod.POST)
     public Object deletePopuBase(@RequestBody Map<String,List<Long>> pojo) {
-        logger.info("input ids : {}", JsonMapper.toJsonString(pojo));
+        logger.info("input ids : {}", JacksonMapper.toJsonString(pojo));
         //List<Long> ids = pojo.get("ids");
         return null;
     }
 
     @RequestMapping(value = "/getSimpleParam", method = RequestMethod.POST)
     public Object getSimpleParam(@RequestBody String biNo) {
-        logger.info("input num : {}", JsonMapper.toJsonString(biNo));
+        logger.info("input num : {}", JacksonMapper.toJsonString(biNo));
         //List<Long> ids = pojo.get("ids");
         return null;
     }

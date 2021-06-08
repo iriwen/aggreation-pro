@@ -1,10 +1,11 @@
 package com.manjaro.code.controller;
 
+
 import com.manjaro.code.easyexcel.model.ExportModel;
 import com.manjaro.code.easyexcel.model.ImportModel;
 import com.manjaro.code.easyexcel.util.ExcelUtil;
 import com.alibaba.excel.EasyExcel;
-import com.manjaro.json.jackson.JsonMapper;
+import com.manjaro.json.jackson.JacksonMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +44,7 @@ public class ExcelOperationController {
         String filePath = "/home/worker/文档/导入的模板文件.xlsx";
         List<ImportModel> importModels = EasyExcel.read(filePath).head(ImportModel.class).sheet().doReadSync();
 
-        logger.info("parse result : {}", JsonMapper.toJsonString(importModels));
+        logger.info("parse result : {}", JacksonMapper.toJsonString(importModels));
         return importModels;
     }
 

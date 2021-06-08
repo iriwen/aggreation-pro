@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * created by iriwen on 2020/10/20.
  */
-public class JsonMapper {
+public class JacksonMapper {
 
     public static final ObjectMapper objectMapper = new ObjectMapper();
 

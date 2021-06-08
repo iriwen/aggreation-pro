@@ -1,7 +1,7 @@
 package com.manjaro.json.entity;
 
 
-import com.manjaro.json.jackson.JsonMapper;
+import com.manjaro.json.jackson.JacksonMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class Tes0Null {
 
         List subList = list.stream().limit(10).collect(Collectors.toList());
 
-        log.info("sublist info :{}" , JsonMapper.toJsonString(subList));
+        log.info("sublist info :{}" , JacksonMapper.toJsonString(subList));
 
         Iterator<Integer> iterator = list.iterator();
         while (iterator.hasNext()) {

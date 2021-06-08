@@ -1,7 +1,7 @@
 package com.manjaro.code.codec;
 
 
-import com.manjaro.json.jackson.JsonMapper;
+import com.manjaro.json.jackson.JacksonMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -61,7 +61,7 @@ public class CombineYearMonth {
 
         }).collect(Collectors.toList());
 
-        log.info("rawMonth ={}", JsonMapper.toJsonString(rawMonth));
+        log.info("rawMonth ={}", JacksonMapper.toJsonString(rawMonth));
         return rawMonth;
     }
 
