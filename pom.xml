@@ -228,4 +228,34 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <package.environment>dev</package.environment>
+            </properties>
+        </profile>
+        <profile>
+            <id>sit</id>
+            <properties>
+                <package.environment>sit</package.environment>
+            </properties>
+        </profile>
+        <profile>
+            <id>pre</id>
+            <properties>
+                <package.environment>pre</package.environment>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <package.environment>prod</package.environment>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>

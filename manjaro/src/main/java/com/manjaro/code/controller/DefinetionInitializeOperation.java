@@ -7,6 +7,7 @@ import com.manjaro.spring.extention.ApplicationContextHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,12 +18,15 @@ import java.util.stream.Stream;
  * 注解传递
  *
  */
-@ManjaroService
+//@ManjaroService
 public class DefinetionInitializeOperation implements InitializingBean {
 
     private final Logger logger = LoggerFactory.getLogger(ExcelOperationController.class);
 
     private List<String> list ;
+
+    @Autowired
+    ApplicationContextHelper  ctx;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -30,7 +34,7 @@ public class DefinetionInitializeOperation implements InitializingBean {
         list = Stream.of(strs).collect(Collectors.toList());
         //Collections.addAll(list, strs);
         logger.info("list size : {}",list.size());
-        MyAppListener myApplicationListener = ApplicationContextHelper.getBean(MyAppListener.class);
+        MyAppListener myApplicationListener = ctx.getBean(MyAppListener.class);
 
         logger.info("get bean from application Context :{}", myApplicationListener, getClass());
     }

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8181
   servlet:
     context-path: /manjaro
 spring:
@@ -14,7 +14,6 @@ spring:
     password: 111
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-
     driver-class-name: com.mysql.jdbc.Driver
     #driver-class-name: com.mysql.cj.jdbc.Driver'
     filters: stat
@@ -64,10 +63,10 @@ debug: true
 async:
   executor:
       thread:
-          core_pool_size: 5
-           # 配置最大线程数
-           max_pool_size: 5
-           # 配置队列大小
-           queue_capacity: 999
-           # 配置线程池中的线程的名称前缀
-           namePrefix: async-service-
+        corePoolSize: 5
+        # 配置最大线程数
+        maxPoolSize: 5
+        # 配置队列大小
+        queueCapacity: 999
+        # 配置线程池中的线程的名称前缀
+        namePrefix: async-service-
