@@ -1,7 +1,11 @@
 package com.manjaro.code.config;
 
 import com.manjaro.code.executor.VisiableThreadPoolTaskExecutor;
+import com.manjaro.code.mapper.PopuBaseMapper;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -21,24 +25,33 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 @EnableAsync
-@ConfigurationProperties(prefix = "spring.executor")
+@ConfigurationProperties(prefix = "async.executor")
+@Data
+@Slf4j
 public class ExecutorConfig {
 
-    //@Value("${async.executor.thread.core_pool_size}")
-    private int corePoolSize;
+    //配置类中注入mapper
+    @Autowired
+    private PopuBaseMapper popuBaseMapper ;
 
-    //@Value("${async.executor.thread.max_pool_size}")
-    private int maxPoolSize;
+    //@Value("${async.executor.corePoolSize}")
+    public int corePoolSize;
 
-    //@Value("${async.executor.thread.queue_capacity}")
-    private int queueCapacity;
+    //@Value("${async.executor.maxPoolSize}")
+    public int maxPoolSize;
 
-    //@Value("${async.executor.thread.namePrefix}")
-    private String namePrefix;
+    //@Value("${async.executor.queueCapacity}")
+    public int queueCapacity;
 
-    @Bean(name = "asyncServiceExecutor")
+    //@Value("${async.executor.namePrefix}")
+    public String namePrefix;
+
+    @Bean("asyncServiceExecutor")
     public Executor asyncServiceExecutor() {
 
+        if(popuBaseMapper  instanceof FactoryBean){
+            log.info(popuBaseMapper.toString());
+        }
         //在这里修改
         ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
         //配置核心线程数
@@ -57,5 +70,4 @@ public class ExecutorConfig {
         executor.initialize();
         return executor;
     }
-
 }

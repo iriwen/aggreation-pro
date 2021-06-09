@@ -1,20 +1,14 @@
 package com.manjaro.cache;
 
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
-import org.springframework.data.redis.connection.RedisClusterConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
@@ -45,7 +39,7 @@ public class RedisConfig {
             return new LettuceConnectionFactory(redisClusterConfiguration, getLettuceClientConfiguration(redisProperties));
         }
         return null;
-    }*/
+    }
 
     public LettuceClientConfiguration getLettuceClientConfiguration(RedisProperties redisProperties) {
         GenericObjectPoolConfig poolConfig = new GenericObjectPoolConfig();
@@ -58,7 +52,7 @@ public class RedisConfig {
         return LettucePoolingClientConfiguration.builder()
                 .commandTimeout(redisProperties.getTimeout())
                 .poolConfig(poolConfig).build();
-    }
+    }*/
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory connectionFactory) {
@@ -69,28 +63,10 @@ public class RedisConfig {
         return redisTemplate;
     }
 
-    RedisCacheConfiguration getCacheConfigurationWithTtl(RedisTemplate<String, Object> redisTemplate, long seconds) {
-
-        RedisSerializer<String> stringSerializer = redisTemplate.getStringSerializer();
-        RedisSerializationContext.SerializationPair<String> stringSerializationPair = RedisSerializationContext.SerializationPair.fromSerializer(stringSerializer);
-
-        RedisSerializer<?> valueSerializer = redisTemplate.getValueSerializer();
-        RedisSerializationContext.SerializationPair<?> valueSerializationPair = RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer);
-        return RedisCacheConfiguration.defaultCacheConfig() //先获取redisconfig的默认配置
-                // 设置key为String
-                .serializeKeysWith(stringSerializationPair)
-                // 设置value为自动转Json的Object
-                .serializeValuesWith(valueSerializationPair)
-                // 不缓存null
-                .disableCachingNullValues()
-                // 缓存数据保存1小时
-                .entryTtl(Duration.ofSeconds(seconds));
-    }
-
     @Bean
     public CacheManager cacheManager(RedisTemplate<String, Object> redisTemplate) {
 
-        RedisCacheManager.RedisCacheManagerBuilder redisCacheManagerBuilder = org.springframework.data.redis.cache.RedisCacheManager.RedisCacheManagerBuilder
+        RedisCacheManager.RedisCacheManagerBuilder redisCacheManagerBuilder = RedisCacheManager.RedisCacheManagerBuilder
                 .fromConnectionFactory(redisTemplate.getConnectionFactory())
                 .cacheDefaults(getCacheConfigurationWithTtl(redisTemplate, 60 * 60));
 
@@ -101,7 +77,9 @@ public class RedisConfig {
 
        RedisCacheManager redisCacheManager = redisCacheManagerBuilder.transactionAware().build();
 
-      /* RedisCacheManager redisCacheManager2 = RedisCacheManager.RedisCacheManagerBuilder
+       return redisCacheManager ;
+
+        /* RedisCacheManager redisCacheManager2 = RedisCacheManager.RedisCacheManagerBuilder
                 // Redis 连接工厂
                 .fromConnectionFactory(redisTemplate.getConnectionFactory())
                 .cacheDefaults(getCacheConfigurationWithTtl(redisTemplate, 60 * 60))
@@ -111,8 +89,6 @@ public class RedisConfig {
                 // 配置同步修改或删除 put/evict
                 .transactionAware()
                 .build();*/
-
-       return redisCacheManager ;
 
        /* // 基本配置
         RedisCacheConfiguration defaultCacheConfiguration = RedisCacheConfiguration
@@ -139,7 +115,29 @@ public class RedisConfig {
         //return redisCacheManager2;
     }
 
+    RedisCacheConfiguration getCacheConfigurationWithTtl(RedisTemplate<String, Object> redisTemplate, long seconds) {
+
+        RedisSerializer<String> stringSerializer = redisTemplate.getStringSerializer();
+        RedisSerializationContext.SerializationPair<String> stringSerializationPair = RedisSerializationContext.SerializationPair.fromSerializer(stringSerializer);
+
+        RedisSerializer<?> valueSerializer = redisTemplate.getValueSerializer();
+        RedisSerializationContext.SerializationPair<?> valueSerializationPair = RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer);
+
+        return RedisCacheConfiguration.defaultCacheConfig() //先获取redisconfig的默认配置
+                // 设置key为String
+                .serializeKeysWith(stringSerializationPair)
+                // 设置value为自动转Json的Object
+                .serializeValuesWith(valueSerializationPair)
+                // 不缓存null
+                .disableCachingNullValues()
+                // 缓存数据保存1小时
+                .entryTtl(Duration.ofSeconds(seconds));
+    }
+
     public  RedisCacheConfiguration getRedisCacheConfig(CacheDurationConfig cacheConfig,RedisTemplate<String, Object> redisTemplate) {
+
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<>(Object.class);
+        RedisSerializationContext.SerializationPair.fromSerializer(jackson2JsonRedisSerializer);
 
         RedisSerializer<String> stringSerializer = redisTemplate.getStringSerializer();
         RedisSerializationContext.SerializationPair<String> stringSerializationPair = RedisSerializationContext.SerializationPair.fromSerializer(stringSerializer);
