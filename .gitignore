@@ -29,3 +29,34 @@ hs_err_pid*
 
 **/target/
 /manjaro/src/main/resources/rebel.xml
+将删除 .project
+将删除 .settings/
+将删除 .vscode/
+将删除 common/.project
+将删除 common/.settings/
+将删除 common/distro-cache/.classpath
+将删除 common/distro-cache/.factorypath
+将删除 common/distro-cache/.project
+将删除 common/distro-cache/.settings/
+将删除 common/distro-cache/src/main/resources/
+将删除 common/distro-cache/src/test/
+将删除 common/distro-json/.classpath
+将删除 common/distro-json/.factorypath
+将删除 common/distro-json/.project
+将删除 common/distro-json/.settings/
+将删除 common/distro-json/src/main/resources/
+将删除 common/distro-json/src/test/
+将删除 common/spring-tools/.classpath
+将删除 common/spring-tools/.factorypath
+将删除 common/spring-tools/.project
+将删除 common/spring-tools/.settings/
+将删除 common/spring-tools/src/main/java/com/manjaro/spring/tools/
+将删除 common/spring-tools/src/main/resources/
+将删除 common/spring-tools/src/test/
+将删除 manjaro/.classpath
+将删除 manjaro/.factorypath
+将删除 manjaro/.project
+将删除 manjaro/.settings/
+/.settings/
+/.vscode/
+/.project
