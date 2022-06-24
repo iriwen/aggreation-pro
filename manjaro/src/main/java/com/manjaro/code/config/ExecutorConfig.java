@@ -31,7 +31,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ExecutorConfig {
 
     //配置类中注入mapper
-    @Autowired
+    //@Autowired
     private PopuBaseMapper popuBaseMapper ;
 
     //@Value("${async.executor.corePoolSize}")
@@ -49,9 +49,9 @@ public class ExecutorConfig {
     @Bean("asyncServiceExecutor")
     public Executor asyncServiceExecutor() {
 
-        if(popuBaseMapper  instanceof FactoryBean){
+        /*if(popuBaseMapper  instanceof FactoryBean){
             log.info(popuBaseMapper.toString());
-        }
+        }*/
         //在这里修改
         ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
         //配置核心线程数

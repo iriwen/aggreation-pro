@@ -1,8 +1,8 @@
 package com.manjaro.code.zookeeper;
 
-import org.apache.curator.framework.CuratorFramework;
-import org.apache.curator.framework.CuratorFrameworkFactory;
-import org.apache.curator.retry.RetryNTimes;
+//import org.apache.curator.framework.CuratorFramework;
+//import org.apache.curator.framework.CuratorFrameworkFactory;
+//import org.apache.curator.retry.RetryNTimes;
 
 /**
  * 利用zk实现分布式锁
@@ -22,7 +22,7 @@ public class DistributedLock {
 
     public static void main(String[] args) {
 
-        RetryNTimes retryPolicy = new RetryNTimes(10, 5000);
+       /* RetryNTimes retryPolicy = new RetryNTimes(10, 5000);
         CuratorFramework client = CuratorFrameworkFactory.builder().
                 connectString(ZK_SERVER).
                 connectionTimeoutMs(15 * 1000).
@@ -30,7 +30,7 @@ public class DistributedLock {
                 retryPolicy(retryPolicy).
                 build();
         client.start();
-
+*/
 
 
         //CuratorFramework framework = CuratorFrameworkFactory.

@@ -8,12 +8,12 @@ spring:
   starter:
     name: theStarterFailedBySpace
   datasource:
-    name: basicdata_20200401
-    url: jdbc:mysql://192.168.100.101:3306/columbus?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    name: nei-test
+    url: jdbc:mysql://127.0.0.1:3306/nei-test?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
-    password: 111
-    # 使用druid数据源
-    type: com.alibaba.druid.pool.DruidDataSource
+    password: 123456
+    # HikariCP
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.jdbc.Driver
     #driver-class-name: com.mysql.cj.jdbc.Driver'
     filters: stat

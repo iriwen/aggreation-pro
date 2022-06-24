@@ -4,6 +4,7 @@ package com.manjaro.spring.extention;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 /**
@@ -22,6 +23,7 @@ public class ApplicationContextHelper implements ApplicationContextAware {
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         applicationContext = context;
+
         System.out.println("context  was configed");
     }
 }
