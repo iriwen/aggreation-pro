@@ -1,12 +1,18 @@
 package com.manjaro.code;
 
+import com.manjaro.code.cache.RedisCacheConfig;
+import com.manjaro.code.config.MyTypeFilter;
 import com.manjaro.code.interceptor.MyReqInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.Import;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -19,6 +25,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableCaching
 @Import(com.manjaro.cache.RedisConfig.class)
 @MapperScan("com.manjaro.code.mapper")
+//@ComponentScans(excludeFilters = {@ComponentScan.Filter(type = FilterType.CUSTOM, classes = MyTypeFilter.class)})
 public class ManjaroApp implements WebMvcConfigurer {
 
     public static void main(String[] args) {

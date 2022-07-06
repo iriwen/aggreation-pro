@@ -1,6 +1,7 @@
 package com.manjaro.code.controller;
 
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class Lazycontroller {
     }
 
     @GetMapping("/test")
+    @Cacheable(key="testlazy")
     public String testLazyBean(){
         System.out.println("method 。。。");
         /*if(testlazy == null || ! (testlazy instanceof Testlazy) ){
